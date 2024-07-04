@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Rubik+Mono+One&display=swap');
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.header {
+    background-color: #3b5998;
+    color: #fff;
+    padding-left: 1rem;
+    
+    padding-bottom: 1.4rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    height: 50px;
+    position: fixed;
+    /* Add this line to fix the header */
+    width: 100%;
+    /* Ensure header spans the full width */
+    z-index: 999;
+    /* Ensure header is above other fixed elements */
+}
+.block{
+    margin-top: 3vh;
+
+   margin-right: 26vw;
+   font-family: "Orbitron", sans-serif;
+   font-weight: bold;
+   font-size: 1.9rem;
+   cursor: pointer;
+   text-decoration: none;
+   color: white;
+
+}
+
+
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.sidebar {
+    margin-top: 50px;
+    background-color: #20232a;
+    color: #fff;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    width: 250px;
+    overflow-y: auto;
+    transition: width 0.3s;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    /* Add this line */
+    height: 100%;
+    /* Ensure sidebar covers the full height */
+}
+
+.sidebar ul {
+    margin-top: 40px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 1rem;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: #61dafb;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s, color 0.3s;
+    font-size: 1.1rem;
+}
+
+.sidebar ul li a:hover {
+    background-color: #282c34;
+    color: #fff;
+}
+
+.main {
+    padding: 2rem;
+    padding-top: 70px;
+    /* Adjust top padding to accommodate fixed header */
+    width: calc(100% - 270px);
+    margin-left: 250px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+.section {
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #61dafb;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+table thead {
+    background-color: #3b5998;
+    color: #fff;
+}
+
+table th,
+table td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 1rem;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container,
+.header,
+.sidebar,
+.main,
+.section {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.chart-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 96%;
+    margin-top: 20px;
+}
+
+#myLineChart {
+    display: block;
+    box-sizing: border-box;
+    height: 500px;
+    width: 1130px;
+}
+
+.chart-container h2 {
+    margin-top: -12px;
+    background-color: white;
+    padding: 20px;
+    border-bottom: 2px solid #61dafb;
+}
+
+.liquidity-pools {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+}
+
+.liquidity-pools h2 {
+    margin-top: -12px;
+    border-bottom: 2px solid #61dafb;
+    padding: 20px;
+}
+
+.pool-info div {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.a2 {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.a2 h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #61dafb;
+    padding-bottom: 0.5rem;
+}
+
+.a2 button{
+    background-color: #3b5998;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.a2 button:hover {
+    background-color: #333;
+}
+
+.a2 form {
+    display: flex;
+    flex-direction: column;
+}
+
+.a2 form label{
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.a2 form input{
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}

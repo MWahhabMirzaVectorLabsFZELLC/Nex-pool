@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlockSwap</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/Common.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+</head>
+
+<body>
+    <video autoplay loop muted plays-inline class="myvid">
+        <source src="myvid.mp4" type="video/mp4">
+    </video>
+
+    <header>
+        <div class="logo">BlockSwap</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="poolinfo.html">Liquidity Pool</a></li>
+                <li><a href="user_panel.html">User Panel</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+                <li><a href="Swap.html">Swap Tokens</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <h1 class="front-text">Experience the future of <br>token swapping with <br>Block Swap – swift, safe, and
+            simple.</h1>
+    </div>
+
+    <main>
+
+        <div class="center1">
+            <div class="center">
+                <div class="text">
+                    <h1 class="mytext"><span class="text2">BlockSwap</span> <br> <span class="auto-type"></span></h1>
+                </div>
+                <dotlottie-player src="https://lottie.host/d90c11cf-6fdc-4de6-8ea7-8afc5a5cfd02/v1taFMSOHb.json"
+                    background="transparent" speed="1" style="width: 600px; height: 600px" direction="1"
+                    playMode="normal" loop autoplay class="player"></dotlottie-player>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <a href="poolinfo.html"> <img src="imgs/provide_liquidity.png" alt="Provide Liquidity"> </a>
+                <h2>Liquidity Pool Info</h2>
+                <p>view our liquidity pools.</p>
+            </div>
+            <div class="card">
+                <a href="user_panel.html"> <img src="imgs/earn_rewards.png" alt="Earn Rewards"></a>
+                <h2>Earn Rewards</h2>
+                <p>Participate in our staking programs and earn lucrative rewards.</p>
+            </div>
+            <div class="card">
+                <a href="Swap.html"><img src="imgs/swap_tokens.png" alt="Swap Tokens"></a>
+                <h2>Swap Tokens</h2>
+                <p>Easily swap between a variety of tokens with low fees and fast transactions.</p>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>About Block Swap</h4>
+                    <ul>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="Terms.html">Terms of services</a></li>
+                        <li><a href="privacy.html">Privacy & Policy</a></li>
+                        <li><a href="#">What's new</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>App</h4>
+                    <ul>
+                        <li><a href="Swap.html">Swap</a></li>
+                        <li><a href="poolinfo.html">Pool</a></li>
+                        <li><a href="#">Stake</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">Tokenomics</a></li>
+                        <li><a href="#">Whitepaper</a></li>
+                        <li><a href="#">Road Map</a></li>
+                        <li><a href="#">Govern</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61562183661689"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/MirzaWahhab"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="footer-bottom">
+            <p>&copy; 2024 BlockSwap. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typed = new Typed(".auto-type", {
+            strings: [
+                "Welcome to BlockSwap, your secure platform for effortless token swaps and liquidity pooling. Experience fast, reliable, and seamless transactions, backed by state-of-the-art security measures. Join BlockSwap today and take control of your digital assets with confidence and ease."
+            ],
+            typeSpeed: 40,
+            loop: false,
+            cursorChar: "_", // Set cursor character
+            onComplete: function (self) {
+                self.cursor.style.opacity = 0; // Hide the cursor when animation completes
+            }
+        });
+    </script>
+    <script src="JS/animations.js"></script>
+
+</body>
+
+</html>

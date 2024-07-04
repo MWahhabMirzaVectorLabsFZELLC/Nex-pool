@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="CSS/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@4.10.0/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="header-container">
+        <header class="header">
+            <h1>Admin Dashboard</h1>
+        </header>
+    </div>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#providers">Providers Info</a></li>
+                <li><a href="#swap">Swap Data</a></li> <!-- New Swap Data section link -->
+                <li><a href="#info">Pool Info</a></li>
+                <li><a href="#chart">Pool Chart</a></li>
+                <li><a href="#a1">Distribute Daily Profit</a></li>
+                <li><a href="#a2">Withdraw Excess to Balancer</a></li>
+                <li><a href="#a3">Reinvest from Balancer</a></li>
+            </ul>
+        </nav>
+        <main class="main">
+            <section id="providers" class="section">
+                <h2>Providers Information</h2>
+                <table id="providersTable">
+                    <thead>
+                        <tr>
+                            <th>Provider Address</th>
+                            <th>Amount WBTC</th>
+                            <th>Amount RUNE</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </section>
+            <section id="swap" class="section">
+                <h2>Swap Data</h2>
+                <table id="swapTable">
+                    <thead>
+                        <tr>
+                            <th>Direction</th>
+                            <th>Amount</th>
+                            <th>Rate</th>
+                            <th>Address</th>
+                            <th>Estimated Amount</th>
+                            <th>Transaction Fee</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="info">
+                <div id="info" class="liquidity-pools">
+                    <h2>Pool Info</h2>
+                    <div class="pool">
+                        <div class="pool-info">
+                            <div id="amountRune"></div>
+                            <div id="amountWbtc"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="chart">
+
+                <div id="chart" class="chart-container">
+                    <h2 class="section-heading">Pool Chart</h2>
+                    <canvas id="myLineChart"></canvas>
+                </div>
+            </section>
+            <section id="a1">
+
+                <div id="a1" class="a1">
+                    <h2 class="section-heading">Distribute Daily Profit</h2>
+                    <button id="distributeProfitButton">Distribute Daily Profit</button>
+                </div>
+            </section>
+            <section id="a2">
+                <div id="a2" class="a2">
+                    <h3>Withdraw Excess to Balancer</h3>
+                    <form id="withdrawExcessForm">
+                        <label for="withdrawTargetRuneAmount">Target RUNE Amount:</label>
+                        <input type="number" id="withdrawTargetRuneAmount" required>
+                        <label for="withdrawTargetWbtcAmount">Target WBTC Amount:</label>
+                        <input type="number" id="withdrawTargetWbtcAmount" required>
+                        <button type="submit">Withdraw Excess</button>
+                    </form>
+                </div>
+            </section>
+            <section id="a3">
+
+                <div id="a3" class="a3">
+                    <h3>Reinvest from Balancer</h3>
+                    <form id="reinvestForm">
+                        <label for="reinvestRuneAmount">RUNE Amount:</label>
+                        <input type="number" id="reinvestRuneAmount" required>
+                        <label for="reinvestWbtcAmount">WBTC Amount:</label>
+                        <input type="number" id="reinvestWbtcAmount" required>
+                        <button type="submit">Reinvest</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="JS/admin.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sidebarLinks = document.querySelectorAll(".sidebar ul li a");
+            const sections = document.querySelectorAll(".main section");
+
+            // Hide all sections initially
+            sections.forEach(section => {
+                section.style.display = "none";
+            });
+
+            // Add click event listeners to sidebar links
+            sidebarLinks.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.style.display = "none";
+                    });
+
+                    // Show the corresponding section based on the link's href
+                    const sectionId = link.getAttribute("href").substring(1); // Remove the "#" from href
+                    const targetSection = document.getElementById(sectionId);
+                    if (targetSection) {
+                        targetSection.style.display = "block";
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="CSS/user_panel.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@4.10.0/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+ 
+    <div class="header-container">
+        <header class="header">
+            <a class="block" href="index.html">Block Swap</a>
+            <h1>User Dashboard</h1>
+        </header>
+    </div>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#info">Pool Info</a></li>
+                <li><a href="#chart">Pool Chart</a></li>
+                <li><a href="#a1">Add Liquidity</a></li>
+                <li><a href="#a2">Remove Liquidity</a></li>
+                <li><a href="#a3">Provider Info</a></li>
+            </ul>
+        </nav>
+        <main class="main">
+            <div style="display: none;">
+                <button id="btn" onclick="Connect()" >Connect Wallet</button>
+                <p id="addr1" style="color: white; font-size: 10px; display: none; "></p>
+            </div>
+            <section id="info" >
+                <div class="liquidity-pools">
+                    <h2>Pool Info</h2>
+                    <div class="pool">
+                        <div class="pool-info">
+                            <div id="amountRune"></div>
+                            <div id="amountWbtc"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="chart" class="section">
+                <div class="chart-container">
+                    <h2>Pool Chart</h2>
+                    <canvas id="myLineChart"></canvas>
+                </div>
+            </section>
+            <section id="a1" class="a2 ">
+                <div class="add-liquidity ">
+                    <h2>Add Liquidity</h2>
+                    <form id="provideLiquidityForm">
+                        <label for="runeAmount">RUNE Amount</label>
+                        <input type="number" id="runeAmount" placeholder="Enter RUNE Amount">
+                        <label for="wbtcAmount">WBTC Amount</label>
+                        <input type="number" id="wbtcAmount" placeholder="Enter WBTC Amount">
+                        <button type="submit" class="btn">Provide Liquidity</button>
+                    </form>
+                </div>
+            </section>
+            <section id="a2" class="a2">
+                <div class="remove-liquidity ">
+                    <h2>Remove Liquidity</h2>
+                    <form id="removeLiquidityForm">
+                        <label for="removeRuneAmount">RUNE Amount</label>
+                        <input type="number" id="removeRuneAmount" placeholder="Enter RUNE Amount">
+                        <label for="removeWbtcAmount">WBTC Amount</label>
+                        <input type="number" id="removeWbtcAmount" placeholder="Enter WBTC Amount">
+                        <label for="lpTokenKey">LP Token Key</label>
+                        <input type="text" id="lpTokenKey" placeholder="Enter LP Token Key">
+                        <button type="submit" class="btn">Remove Liquidity</button>
+                    </form>
+                </div>
+            </section>
+            <section id="a3" class=" a3">
+                <div class="liquidity-pools">
+                    <h2>Provider Info</h2>
+                    <div id="wbtc1"></div>
+                    <div id="rune1"></div>
+                    <div id="key1"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="JS/user_panel.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sidebarLinks = document.querySelectorAll(".sidebar ul li a");
+            const sections = document.querySelectorAll(".main section");
+
+            // Hide all sections initially
+            sections.forEach(section => {
+                section.style.display = "none";
+            });
+
+            // Add click event listeners to sidebar links
+            sidebarLinks.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.style.display = "none";
+                    });
+
+                    // Show the corresponding section based on the link's href
+                    const sectionId = link.getAttribute("href").substring(1); // Remove the "#" from href
+                    const targetSection = document.getElementById(sectionId);
+                    if (targetSection) {
+                        targetSection.style.display = "block";
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>
