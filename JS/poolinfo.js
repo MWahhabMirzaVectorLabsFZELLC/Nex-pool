@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fetch and display pool information status
     async function fetchPoolInfo() {
         try {
-            const response = await axios.get("https://final-i5zrsy30b-shahs-projects-6e930787.vercel.app/api/poolinfos");
+            const response = await axios.get("https://final-flax-six.vercel.app/api/poolinfos");
             const poolInfos = response.data;
 
             // Update the UI with pool information
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fetch and display chart data
     async function ChartData() {
-        const response = await fetch("https://final-i5zrsy30b-shahs-projects-6e930787.vercel.app/api/poolinfos");
+        const response = await fetch("https://final-flax-six.vercel.app/api/poolinfos");
         const data = await response.json();
 
         const labels = data.map((item) =>
