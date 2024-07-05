@@ -584,9 +584,9 @@ async function sendDataToBackend(RuneChart, WbtcChart) {
 async function getProviderInfo(providerAddress) {
 	try {
 		const providerInfo = await contract.methods.getProviderInfo(providerAddress).call();
-		document.getElementById("wbtc1").innerHTML = `Amount WBTC : ${providerInfo.amountWBTC}`;
-		document.getElementById("rune1").innerHTML = `Amount RUNE : ${providerInfo.amountRUNE}`;
-		document.getElementById("key1").innerHTML = `LpTokenKey: ${providerInfo.lpTokenKey}`;
+		document.getElementById("wbtc1").innerHTML = providerInfo.amountWBTC;
+		document.getElementById("rune1").innerHTML = providerInfo.amountRUNE;
+		document.getElementById("key1").innerHTML  = providerInfo.lpTokenKey;
 
 		const amountWBTC = providerInfo.amountWBTC.toString();
 		const amountRUNE = providerInfo.amountRUNE.toString();
