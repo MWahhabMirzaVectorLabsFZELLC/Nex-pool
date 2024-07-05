@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Rubik+Mono+One&display=swap');
+
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -10,7 +11,6 @@ body {
     background-color: #3b5998;
     color: #fff;
     padding-left: 1rem;
-    
     padding-bottom: 1.4rem;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -19,26 +19,20 @@ body {
     justify-content: start;
     height: 50px;
     position: fixed;
-    /* Add this line to fix the header */
     width: 100%;
-    /* Ensure header spans the full width */
     z-index: 999;
-    /* Ensure header is above other fixed elements */
 }
-.block{
+
+.block {
     margin-top: 3vh;
-
-   margin-right: 26vw;
-   font-family: "Orbitron", sans-serif;
-   font-weight: bold;
-   font-size: 1.9rem;
-   cursor: pointer;
-   text-decoration: none;
-   color: white;
-
+    margin-right: 26vw;
+    font-family: "Orbitron", sans-serif;
+    font-weight: bold;
+    font-size: 1.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
 }
-
-
 
 .container {
     display: flex;
@@ -56,9 +50,7 @@ body {
     transition: width 0.3s;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     position: fixed;
-    /* Add this line */
     height: 100%;
-    /* Ensure sidebar covers the full height */
 }
 
 .sidebar ul {
@@ -88,7 +80,6 @@ body {
 .main {
     padding: 2rem;
     padding-top: 70px;
-    /* Adjust top padding to accommodate fixed header */
     width: calc(100% - 270px);
     margin-left: 250px;
     box-sizing: border-box;
@@ -96,8 +87,6 @@ body {
     position: relative;
     z-index: 1;
 }
-
-
 
 .section {
     margin-top: 30px;
@@ -114,29 +103,6 @@ body {
     border-bottom: 2px solid #61dafb;
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-}
-
-table thead {
-    background-color: #3b5998;
-    color: #fff;
-}
-
-table th,
-table td {
-    padding: 1rem;
-    border: 1px solid #ddd;
-    text-align: left;
-    font-size: 1rem;
-}
-
-table tr:nth-child(even) {
-    background-color: #f9f9f9;
 }
 
 @keyframes fadeIn {
@@ -209,13 +175,7 @@ table tr:nth-child(even) {
     animation: fadeIn 0.5s ease-in-out;
 }
 
-.a2 h3 {
-    margin-top: 0;
-    border-bottom: 2px solid #61dafb;
-    padding-bottom: 0.5rem;
-}
-
-.a2 button{
+.a2 button {
     background-color: #3b5998;
     color: white;
     border: none;
@@ -234,14 +194,26 @@ table tr:nth-child(even) {
     flex-direction: column;
 }
 
-.a2 form label{
+.a2 form label {
     margin-bottom: 0.5rem;
     font-weight: bold;
 }
 
-.a2 form input{
+.a2 form input {
     margin-bottom: 1rem;
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
+}
+
+.provider-info {
+    width: 100%;
+    padding: 1% 0;
+}
+
+.provider-info .label {
+    font-weight: bold;
+    color: #000;
+    font-size: 1em;
+    flex: 1;
 }
