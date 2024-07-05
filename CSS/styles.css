@@ -88,7 +88,7 @@ body {
 
 .mytext {
     display: inline-block;
-    width: 50vw;
+
     line-height: 1.2;
     margin: 20px 0;
     white-space: normal;
@@ -158,4 +158,107 @@ body {
     font-size: 1.5em;
     margin-bottom: 10px;
     color: #f39c12;
+}
+
+@media only screen and (max-width: 500px) {
+    .myvid {
+        position: absolute;
+        top: 0;
+        left: -30vw;
+        width: 130%;
+        height: 80vw;
+        z-index: -1;
+        display: block;
+        object-fit: cover;
+    }
+
+    .front-text {
+        font-family: "Black Ops One", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 19px;
+        margin-top: 32%;
+        line-height: 1.5rem;
+        text-align: center;
+        background: linear-gradient(135deg, #3f88c5, #f26c4f, #917f57);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-emphasis-color: transparent;
+        animation: gradientMotion 5s ease infinite;
+    }
+
+    @keyframes gradientMotion {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .mytext {
+        display: inline-block;
+        line-height: 1.2;
+        margin: 20px 0;
+        white-space: normal;
+        overflow: hidden;
+
+    }
+
+    .center1 {
+        margin-top: 7vh;
+    }
+
+    .text2 {
+        font-size: 15px;
+        text-shadow: 4px 4px 0px #3F7FBF;
+        mix-blend-mode: screen;
+        animation: fadeIn 2.5s linear forwards;
+    }
+
+    .auto-type {
+        font-size: 10px;
+        font-weight: bold;
+        background: linear-gradient(90deg, #7209b7, #4361ee, green, #4cc9f0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-emphasis-color: transparent;
+    }
+
+    .mytext {
+        display: inline-block;
+
+        line-height: 0.7;
+        margin: 20px 0;
+        white-space: normal;
+        overflow: hidden;
+
+    }
+
+    .player {
+        position: relative;
+        right: 4vw;
+        top: -15vh;
+
+    }
+
+    .center {
+        display: flex;
+        margin-bottom: -30vh;
+    }
+
+
+
+
+
+
+
+
 }
