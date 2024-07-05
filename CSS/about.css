@@ -16,25 +16,28 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
+    align-items: center; /* Center content horizontally */
 }
 
-/* Main content sections */
 main {
     flex: 1;
     padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    width: 100%; /* Ensure main occupies full width */
 }
 
 section {
-    position:relative;
-    left:20px;
-    width: 100%; /* Occupy full width of the main container */
+    width: calc(100% - 40px); /* Occupy full width of the main container */
     max-width: 1200px; /* Limit maximum width of sections */ 
     text-align: center;
     margin-bottom: 60px;
     background-color: #333;
-       padding: 40px;
-        border-radius: 10px;
-         transition: transform 0.3s ease; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+    padding: 40px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
 }
 
 section h2 {
@@ -61,9 +64,8 @@ section p {
 .developer-card {
     display: flex;
     flex-wrap: wrap; 
-    gap: 100px; 
+    gap: 20px; /* Adjusted gap for smaller screens */
     justify-content: center;
-
 }
 
 .developer-info {
@@ -78,7 +80,7 @@ section p {
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Aligns content vertically */
-    height: 350; /* Set a fixed height to align links at the bottom */
+    height: 350px; /* Set a fixed height to align links at the bottom */
 }
 
 .developer-info img {
@@ -126,4 +128,96 @@ section p {
 .social-links a:hover {
     background-color: #f39c12;
     transform: scale(1.1);
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    section {
+        padding: 30px;
+    }
+
+    section h2 {
+        font-size: 2em;
+    }
+
+    section h3 {
+        font-size: 1.5em;
+    }
+
+    section p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 20px;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+
+    section h3 {
+        font-size: 1.4em;
+    }
+
+    section p {
+        font-size: 0.95em;
+    }
+
+    .developer-card {
+        gap: 15px;
+    }
+
+    .developer-info {
+        width: 200px;
+        height: auto; /* Remove fixed height */
+    }
+
+    .developer-info img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .developer-info h3 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 15px;
+    }
+
+    section h2 {
+        font-size: 1.5em;
+    }
+
+    section h3 {
+        font-size: 1.2em;
+    }
+
+    section p {
+        font-size: 0.9em;
+    }
+
+    .developer-info {
+        width: 180px;
+    }
+
+    .developer-info img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .developer-info h3 {
+        font-size: 1em;
+    }
+
+    .social-links a {
+        height: 35px;
+        width: 35px;
+        line-height: 35px;
+    }
 }
