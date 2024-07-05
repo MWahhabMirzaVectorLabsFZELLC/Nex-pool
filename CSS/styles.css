@@ -223,7 +223,7 @@ body {
     }
 
     .auto-type {
-        font-size: 12px;
+         font-size: 10px;
         font-weight: bold;
         background: linear-gradient(90deg, #7209b7, #4361ee, green, #4cc9f0);
         -webkit-background-clip: text;
