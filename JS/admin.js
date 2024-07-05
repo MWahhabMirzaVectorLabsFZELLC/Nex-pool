@@ -324,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Fetch and display provider information
 	async function fetchProviderInfo() {
 		try {
-			const response = await axios.get("https://serversample.vercel.app/api/providers");
+			const response = await axios.get("http://localhost:3000/api/providers");
 			const providers = response.data;
 
 			const providersTableBody = document.querySelector("#providersTable tbody");
@@ -365,7 +365,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Fetch and display pool information status
 	async function fetchPoolInfo() {
 		try {
-			const response = await axios.get("https://serversample.vercel.app/api/poolinfos");
+			const response = await axios.get("http://localhost:3000/api/poolinfos");
 			const poolInfos = response.data;
 
 			// Update the UI with pool information
@@ -382,7 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Fetch and display chart data
 	async function ChartData() {
-		const response = await fetch("https://serversample.vercel.app/api/poolinfos");
+		const response = await fetch("http://localhost:3000/api/poolinfos");
 		const data = await response.json();
 
 		const labels = data.map((item) =>
@@ -452,7 +452,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Function to fetch and display swap data
 	async function fetchSwapData() {
 		try {
-			const response = await axios.get("https://serversample.vercel.app/api/swapData"); // Update the endpoint as needed
+			const response = await axios.get("http://localhost:3000/api/swapData"); // Update the endpoint as needed
 			const swapData = response.data;
 
 			const swapTableBody = document.querySelector("#swapTable tbody");
