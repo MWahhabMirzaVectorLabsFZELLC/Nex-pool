@@ -187,6 +187,7 @@ body {
         text-emphasis-color: transparent;
         animation: gradientMotion 5s ease infinite;
     }
+
     @keyframes gradientMotion {
         0% {
             background-position: 0% 50%;
@@ -210,11 +211,11 @@ body {
 
     }
 
-     .center1 {
+    .center1 {
         margin-top: 4vh;
     }
 
-     .text2 {
+    .text2 {
         font-size: 20px;
         text-shadow: 4px 4px 0px #3F7FBF;
         mix-blend-mode: screen;
@@ -222,7 +223,7 @@ body {
     }
 
     .auto-type {
-        font-size: 10px;
+        font-size: 12px;
         font-weight: bold;
         background: linear-gradient(90deg, #7209b7, #4361ee, green, #4cc9f0);
         -webkit-background-clip: text;
@@ -252,12 +253,6 @@ body {
         display: flex;
         margin-bottom: -30vh;
     }
-
-
-
-
-
-
 
 
 }
