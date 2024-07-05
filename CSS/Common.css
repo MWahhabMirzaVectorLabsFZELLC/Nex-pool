@@ -61,6 +61,14 @@ nav ul li a:hover {
     transform: scale(1.1);
 }
 
+
+.dropdown {
+    position: relative;
+    display: none;
+}
+
+
+
 /* Footer styles */
 .container{
 	max-width: 1170px;
@@ -151,4 +159,67 @@ ul{
   .footer-col{
     width: 100%;
 }
+}
+
+@media only screen and (max-width: 500px){
+    header .logo {
+        margin-left: 4%;
+        margin-right: 50%;
+        font-size: 20px;
+        font-weight: bold;
+        color: #f39c12;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .dropdown {
+        display: inline-block;
+     
+    }
+
+    .dropdown button {
+        background-color: #000;
+        color: white;
+        padding: 0;
+        font-size: 25px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        left: -28.8vw;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    /* Individual dropdown items */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown content on button hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change background color of button on hover */
+.dropdown:hover button {
+    background-color: #2980b9;
+}
+    nav ul {
+        list-style: none;
+        display: none;
+    }
 }
