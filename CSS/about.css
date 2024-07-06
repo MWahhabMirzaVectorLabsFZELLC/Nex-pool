@@ -1,4 +1,5 @@
 /* about.css */
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
 
 /* Reset and basic styles */
 * {
@@ -29,6 +30,8 @@ section {
 }
 
 section h2 {
+    font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
     font-size: 2.5em;
     margin-bottom: 20px;
     color: #f39c12;
@@ -37,6 +40,8 @@ section h2 {
 }
 
 section h3 {
+    font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
     font-size: 1.8em;
     color: #f39c12;
     margin-top: 30px;
@@ -89,6 +94,8 @@ section p {
 }
 
 .developer-info h3 {
+    font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
     font-size: 1.5em;
     margin-bottom: 10px;
     color: #f39c12;
