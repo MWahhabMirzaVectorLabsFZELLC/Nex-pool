@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Rubik+Mono+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* General styles */
 body {
@@ -36,6 +37,9 @@ body {
     text-decoration: none;
     color: white;
 }
+.block h1{
+    font-family: "Kode Mono", monospace;
+}
 
 .container {
     display: flex;
@@ -68,6 +72,7 @@ body {
 }
 
 .sidebar ul li a {
+    font-family: "Poppins", sans-serif;
     color: #61dafb;
     text-decoration: none;
     display: block;
@@ -101,6 +106,7 @@ body {
 }
 
 .section h2 {
+    font-family: "Kode Mono", monospace;
     margin-top: 0;
     font-size: 1.8rem;
     border-bottom: 2px solid #61dafb;
@@ -124,6 +130,7 @@ body {
 }
 
 .chart-container h2 {
+    font-family: "Kode Mono", monospace;
     margin-top: -12px;
     background-color: white;
     padding: 20px;
@@ -139,6 +146,7 @@ body {
 }
 
 .liquidity-pools h2 {
+    font-family: "Kode Mono", monospace;
     margin-top: -12px;
     border-bottom: 2px solid #61dafb;
     padding: 20px;
