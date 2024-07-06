@@ -5,7 +5,7 @@
 /* General styles */
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Kode Mono", monospace;
     background-color: #f0f2f5;
     color: #333;
 }
@@ -37,7 +37,7 @@ body {
     text-decoration: none;
     color: white;
 }
-.block h1{
+.header a h1{
     font-family: "Kode Mono", monospace;
 }
 
@@ -61,12 +61,14 @@ body {
 }
 
 .sidebar ul {
+    font-family: "Kode Mono", monospace;
     margin-top: 40px;
     list-style-type: none;
     padding: 0;
 }
 
 .sidebar ul li {
+    font-family: "Kode Mono", monospace;
     padding: 1rem;
     text-align: center;
 }
@@ -138,6 +140,7 @@ body {
 }
 
 .liquidity-pools {
+    font-family: "Kode Mono", monospace;
     background-color: #fff;
     padding: 1rem;
     border-radius: 8px;
@@ -153,6 +156,7 @@ body {
 }
 
 .pool-info div {
+    font-family: "Kode Mono", monospace;
     margin-bottom: 10px;
     padding: 10px;
 }
@@ -198,11 +202,13 @@ body {
 }
 
 .provider-info {
+    font-family: "Kode Mono", monospace;
     width: 100%;
     padding: 1% 0;
 }
 
 .provider-info .label {
+    font-family: "Kode Mono", monospace;
     font-weight: bold;
     color: #000;
     font-size: 1em;
