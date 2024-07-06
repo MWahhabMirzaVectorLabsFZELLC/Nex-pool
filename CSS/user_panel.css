@@ -35,7 +35,7 @@ body {
     font-size: 1.9rem;
     cursor: pointer;
     text-decoration: none;
-    color: white;
+    color: #f3912f;
 }
 .header a h1{
     font-family: "Kode Mono", monospace;
@@ -100,7 +100,7 @@ body {
 
 .section {
     margin-top: 30px;
-    background-color: #fff;
+    background-color: #323435;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -117,7 +117,7 @@ body {
 }
 
 .chart-container {
-    background-color: white;
+    background-color:#111;
     border-radius: 10px;
     padding: 20px;
     width: 96%;
@@ -134,14 +134,14 @@ body {
 .chart-container h2 {
     font-family: "Kode Mono", monospace;
     margin-top: -12px;
-    background-color: white;
+    background-color: #111;
     padding: 20px;
-    border-bottom: 2px solid #61dafb;
+    border-bottom: 2px solid #f3912f;
 }
 
 .liquidity-pools {
     font-family: "Kode Mono", monospace;
-    background-color: #fff;
+    background-color: #111;
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -151,7 +151,7 @@ body {
 .liquidity-pools h2 {
     font-family: "Kode Mono", monospace;
     margin-top: -12px;
-    border-bottom: 2px solid #61dafb;
+    border-bottom: 2px solid #f3912f;
     padding: 20px;
 }
 
@@ -162,7 +162,7 @@ body {
 }
 
 .a2 {
-    background-color: white;
+    background-color: #111;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -171,8 +171,8 @@ body {
 }
 
 .a2 button {
-    background-color: #3b5998;
-    color: white;
+    background-color: #f3912f;
+    color: #111;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
