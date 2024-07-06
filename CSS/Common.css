@@ -1,4 +1,5 @@
 /* common.css */
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
 
 /* Reset and basic styles */
 * {
@@ -32,6 +33,7 @@ header {
 }
 
 header .logo {
+    font-family: "Kode Mono", monospace;
     margin-left: 40px;
     font-size: 2em;
     font-weight: bold;
@@ -45,6 +47,7 @@ nav ul {
 
 nav ul li {
     margin: 0 10px;
+    font-family: "Kode Mono", monospace;
 }
 
 nav ul li a {
