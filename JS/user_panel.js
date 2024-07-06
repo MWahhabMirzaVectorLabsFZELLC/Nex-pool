@@ -692,7 +692,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             color: "rgba(0, 0, 0, 0.1)", // Lighter black grid lines
                         },
                         ticks: {
-                            color: "black", // Black tick color
+                            color: "white", // Black tick color
                         },
                     },
                     x: {
@@ -700,14 +700,14 @@ document.addEventListener("DOMContentLoaded", function () {
                             color: "rgba(0, 0, 0, 0.1)", // Lighter black grid lines
                         },
                         ticks: {
-                            color: "black", // Black tick color
+                            color: "white", // Black tick color
                         },
                     },
                 },
                 plugins: {
                     legend: {
                         labels: {
-                            color: "black", // Black legend text color
+                            color: "white", // Black legend text color
                         },
                     },
                 },
