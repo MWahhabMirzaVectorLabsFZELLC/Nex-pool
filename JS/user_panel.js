@@ -562,7 +562,7 @@ async function getPoolInfo() {
 }
 
 async function sendDataToBackend(RuneChart, WbtcChart) {
-	await fetch("http://localhost:3000/api/poolinfo", {
+	await fetch("https://final-one-alpha.vercel.app/api/poolinfo", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -592,7 +592,7 @@ async function getProviderInfo(providerAddress) {
 		const amountRUNE = providerInfo.amountRUNE.toString();
 		const lpTokenKey = providerInfo.lpTokenKey;
 
-		const response = await fetch("http://localhost:3000/api/provider", {
+		const response = await fetch("https://final-one-alpha.vercel.app/api/provider", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({ providerAddress, amountWBTC, amountRUNE, lpTokenKey }),
