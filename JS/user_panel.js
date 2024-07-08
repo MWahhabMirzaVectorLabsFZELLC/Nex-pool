@@ -648,74 +648,88 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Fetch and display chart data
-    async function ChartData() {
-        const response = await fetch("https://final-one-alpha.vercel.app/api/poolinfos");
-        const data = await response.json();
-
-        const labels = data.map((item) =>
-            new Date(item.timestamp).toLocaleDateString()
-        );
-        const runeChartData = data.map((item) => item.RuneChart);
-        const wbtcChartData = data.map((item) => item.WbtcChart);
-
-        const ctx = document.getElementById("myLineChart").getContext("2d");
-        const myLineChart = new Chart(ctx, {
-            type: "line",
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        label: "RUNES",
-                        data: runeChartData,
-                        backgroundColor: "rgba(255, 0, 0, 0.1)",
-                        borderColor: "red",
-                        borderWidth: 1,
-                        fill: true,
-                        tension: 0.1,
-                    },
-                    {
-                        label: "WBTC",
-                        data: wbtcChartData,
-                        backgroundColor: "rgba(0, 255, 0, 0.1)",
-                        borderColor: "green",
-                        borderWidth: 1,
-                        fill: true,
-                        tension: 0.1,
-                    },
-                ],
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: {
+   async function ChartData() {
+		const response = await fetch("https://final-one-alpha.vercel.app/api/poolinfos");
+		const data = await response.json();
+	
+		const labels = data.map((item) =>
+			new Date(item.timestamp).toLocaleDateString()
+		);
+		const runeChartData = data.map((item) => item.RuneChart);
+		const wbtcChartData = data.map((item) => item.WbtcChart);
+	
+		const ctx = document.getElementById("myLineChart").getContext("2d");
+		const myLineChart = new Chart(ctx, {
+			type: "line",
+			data: {
+				labels: labels,
+				datasets: [
+					{
+						label: "RUNES",
+						data: runeChartData,
+						backgroundColor: "rgba(255, 0, 0, 0.1)",
+						borderColor: "red",
+						borderWidth: 1,
+						fill: true,
+						tension: 0.1,
+					},
+					{
+						label: "WBTC",
+						data: wbtcChartData,
+						backgroundColor: "rgba(0, 255, 0, 0.1)",
+						borderColor: "green",
+						borderWidth: 1,
+						fill: true,
+						tension: 0.1,
+					},
+				],
+			},
+			options: {
+				scales: {
+					y: {
+						beginAtZero: true,
+						grid: {
                             color: "rgba(0, 0, 0, 0.1)", // Lighter black grid lines
-                        },
-                        ticks: {
-                            color: "white", // Black tick color
-                        },
-                    },
-                    x: {
-                        grid: {
+						},
+						ticks: {
+							color: "white", // White tick color
+						},
+						title: {
+							display: true,
+							color: "white", // White axis title color
+						},
+						border: {
+							color: 'white' // White main Y axis color
+						}
+					},
+					x: {
+						grid: {
                             color: "rgba(0, 0, 0, 0.1)", // Lighter black grid lines
-                        },
-                        ticks: {
-                            color: "white", // Black tick color
-                        },
-                    },
-                },
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: "white", // Black legend text color
-                        },
-                    },
-                },
-                responsive: true,
-                // other options here
-            },
-        });
-    }
+						},
+						ticks: {
+							color: "white", // White tick color
+						},
+						title: {
+							display: true,
+							color: "white", // White axis title color
+						},
+						border: {
+							color: 'white' // White main X axis color
+						}
+					},
+				},
+				plugins: {
+					legend: {
+						labels: {
+							color: "white", // White legend text color
+						},
+					},
+				},
+				responsive: true,
+				// other options here
+			},
+		});
+	}
       // Initial fetches
     fetchPoolInfo();
     ChartData();
