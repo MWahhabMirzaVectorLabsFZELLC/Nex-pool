@@ -1,25 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+/* General styles */
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    font-family: "Kode Mono", monospace;
+    background-color: #181818;
+    color: #fff;
 }
 
 .header {
-    background-color: #3b5998;
+    background-color: #181818;
     color: #fff;
-    padding: 0.5rem 2rem;
+    padding-left: 1rem;
+    padding-bottom: 1.4rem;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
     height: 50px;
-    position: fixed; /* Add this line to fix the header */
-    width: 100%; /* Ensure header spans the full width */
-    z-index: 999; /* Ensure header is above other fixed elements */
+    position: fixed;
+    width: 100%;
+    z-index: 999;
 }
-
+.header a h1{
+    font-family: "Kode Mono", monospace;
+}
+.block {
+    margin-top: 3vh;
+    margin-right: 26vw;
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-size: 1.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: #f3912f;
+}
 
 .container {
     display: flex;
@@ -28,31 +47,34 @@ body {
 
 .sidebar {
     margin-top: 50px;
-    background-color: #20232a;
-    color: #fff;
+    background-color: #3b3f47;
+    color: #111;
     padding-top: 10px;
     padding-bottom: 20px;
     width: 250px;
     overflow-y: auto;
     transition: width 0.3s;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    position: fixed; /* Add this line */
-    height: 100%; /* Ensure sidebar covers the full height */
+    position: fixed;
+    height: 100%;
 }
 
 .sidebar ul {
+    font-family: "Kode Mono", monospace;
     margin-top: 40px;
     list-style-type: none;
     padding: 0;
 }
 
 .sidebar ul li {
+    font-family: "Kode Mono", monospace;
     padding: 1rem;
     text-align: center;
 }
 
 .sidebar ul li a {
-    color: #61dafb;
+    font-family: "Poppins", sans-serif;
+    color: #f3912f;
     text-decoration: none;
     display: block;
     transition: background 0.3s, color 0.3s;
@@ -60,13 +82,14 @@ body {
 }
 
 .sidebar ul li a:hover {
-    background-color: #282c34;
-    color: #fff;
+    background-color: #f3912f;
+    color: #111;
 }
+
 
 .main {
     padding: 2rem;
-    padding-top: 70px; /* Adjust top padding to accommodate fixed header */
+    padding-top: 70px;
     width: calc(100% - 270px);
     margin-left: 250px;
     box-sizing: border-box;
@@ -75,11 +98,9 @@ body {
     z-index: 1;
 }
 
-
-
 .section {
     margin-top: 30px;
-    background-color: #fff;
+    background-color: #323435;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -87,9 +108,10 @@ body {
 }
 
 .section h2 {
+    font-family: "Kode Mono", monospace;
     margin-top: 0;
     font-size: 1.8rem;
-    border-bottom: 2px solid #61dafb;
+    border-bottom: 2px solid #f3912f;
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -98,69 +120,54 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
+    background-color: #111;
+    color: #fff;
 }
 
 table thead {
-    background-color: #3b5998;
+    background-color: #3b3f47;
     color: #fff;
 }
 
 table th,
 table td {
     padding: 0.5rem;
-    border: 1px solid #ddd;
+    border: 1px solid #444;
     text-align: left;
     font-size: 1rem;
 }
 
 table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.container,
-.header,
-.sidebar,
-.main,
-.section {
-    animation: fadeIn 0.5s ease-in-out;
+    background-color: #2b2b2b;
 }
 
 .chart-container {
-    background-color: white;
+    background-color: #111;
+    color: #fff;
     border-radius: 10px;
     padding: 20px;
     width: 96%;
     margin-top: 20px;
 }
 
-/* #myLineChart {
+#myLineChart {
     display: block;
     box-sizing: border-box;
     height: 500px;
-    width: 1150px;
-} */
+    width: 1130px;
+}
 
 .chart-container h2 {
+    font-family: "Kode Mono", monospace;
     margin-top: -12px;
-    background-color: white;
+    background-color: #111;
     padding: 20px;
-    border-bottom: 2px solid #61dafb;
+    border-bottom: 2px solid #f3912f;
 }
 
 .liquidity-pools {
-    background-color: #fff;
+    font-family: "Kode Mono", monospace;
+    background-color: #111;
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -168,18 +175,21 @@ table tr:nth-child(even) {
 }
 
 .liquidity-pools h2 {
+    font-family: "Kode Mono", monospace;
     margin-top: -12px;
-    border-bottom: 2px solid #61dafb;
+    border-bottom: 2px solid #f3912f;
     padding: 20px;
 }
 
 .pool-info div {
+    font-family: "Kode Mono", monospace;
     margin-bottom: 10px;
+    color: #fff;
     padding: 10px;
 }
 
 .a1, .a2, .a3 {
-    background-color: white;
+    background-color: #111;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -189,13 +199,13 @@ table tr:nth-child(even) {
 
 .a1 h2, .a2 h3, .a3 h3 {
     margin-top: 0;
-    border-bottom: 2px solid #61dafb;
+    border-bottom: 2px solid #f3912f;
     padding-bottom: 0.5rem;
 }
 
 .a1 button, .a2 button, .a3 button {
-    background-color: #3b5998;
-    color: white;
+    background-color: #f3912f;
+    color: #111;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -222,4 +232,148 @@ table tr:nth-child(even) {
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 1200px) {
+    .main {
+        padding: 1rem;
+        padding-top: 70px;
+    }
+    #myLineChart {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .main {
+        padding: 1rem;
+        padding-top: 70px;
+    }
+    .sidebar {
+        width: 200px;
+    }
+    .main {
+        width: calc(100% - 220px);
+        margin-left: 200px;
+    }
+    .block {
+        margin-right: 20vw;
+        font-size: 1.6rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .main {
+        margin-top: 10px;
+        width: 100%;
+        margin-left: 0;
+        padding: 1rem;
+    }
+    .sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+        margin-top: 20px;
+        overflow-y: initial;
+        padding: 0 1rem;
+    }
+    .block {
+        margin-right: 0;
+    }
+    #myLineChart {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+    .header {
+        background-color: #827c7c;
+        color: #fff;
+        font-size: 12px;
+        padding-left: 1rem;
+        padding-bottom: 1.4rem;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        height: 41px;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .header {
+        font-size: 10px;
+        height: 35px;
+    }
+    .block {
+        font-size: 1.4rem;
+    }
+    .sidebar ul li {
+        padding: 0.5rem;
+    }
+    .sidebar ul li a {
+        font-size: 1rem;
+    }
+    .main {
+        padding: 1rem;
+        padding-top: 60px;
+    }
+    .section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .header {
+        font-size: 8px;
+        height: 30px;
+    }
+    .block {
+        font-size: 1.2rem;
+    }
+    .sidebar ul li {
+        padding: 0.3rem;
+    }
+    .sidebar ul li a {
+        font-size: 0.9rem;
+    }
+    .main {
+        padding: 0.5rem;
+        padding-top: 50px;
+    }
+    .section h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .header {
+        font-size: 6px;
+        height: 25px;
+    }
+    .block {
+        font-size: 1rem;
+    }
+    .sidebar ul li {
+        padding: 0.2rem;
+    }
+    .sidebar ul li a {
+        font-size: 0.8rem;
+    }
+    .main {
+        padding: 0.2rem;
+        padding-top: 40px;
+    }
+    .section h2 {
+        font-size: 1.1rem;
+    }
 }
