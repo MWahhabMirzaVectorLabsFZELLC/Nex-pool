@@ -1,6 +1,5 @@
 var web3;
 var address = "0xFfcF002C9f8e01ce9c3Bd3e9feD314Eb5acC6210"; // Set your contract address here
-
 var abi = [
 	{
 		inputs: [
@@ -563,7 +562,7 @@ async function getPoolInfo() {
 }
 
 async function sendDataToBackend(RuneChart, WbtcChart) {
-	await fetch("https://final-one-alpha.vercel.app/api/poolinfo", {
+	await fetch("https://server-js-inky.vercel.app/api/poolinfo", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -618,17 +617,6 @@ window.addEventListener("load", async function () {
 	await getProviderInfo(activeAccount);
 });
 
-
-
-
-
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch and display pool information status
     async function fetchPoolInfo() {
@@ -649,7 +637,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Fetch and display chart data
-   async function ChartData() {
+	async function ChartData() {
 		const response = await fetch("https://server-js-inky.vercel.app/api/poolinfos");
 		const data = await response.json();
 	
@@ -731,6 +719,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			},
 		});
 	}
+	
       // Initial fetches
     fetchPoolInfo();
     ChartData();
