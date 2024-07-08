@@ -384,13 +384,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	async function ChartData() {
 		const response = await fetch("https://final-one-alpha.vercel.app/api/poolinfos");
 		const data = await response.json();
-
+	
 		const labels = data.map((item) =>
 			new Date(item.timestamp).toLocaleDateString()
 		);
 		const runeChartData = data.map((item) => item.RuneChart);
 		const wbtcChartData = data.map((item) => item.WbtcChart);
-
+	
 		const ctx = document.getElementById("myLineChart").getContext("2d");
 		const myLineChart = new Chart(ctx, {
 			type: "line",
@@ -422,25 +422,39 @@ document.addEventListener("DOMContentLoaded", function () {
 					y: {
 						beginAtZero: true,
 						grid: {
-							color: "rgba(0, 0, 0, 0.1)", // Lighter black grid lines
+                            color: "rgba(0, 0, 0, 0.1)", // Lighter black grid lines
 						},
 						ticks: {
-							color: "black", // Black tick color
+							color: "white", // White tick color
 						},
+						title: {
+							display: true,
+							color: "white", // White axis title color
+						},
+						border: {
+							color: 'white' // White main Y axis color
+						}
 					},
 					x: {
 						grid: {
-							color: "rgba(0, 0, 0, 0.1)", // Lighter black grid lines
+                            color: "rgba(0, 0, 0, 0.1)", // Lighter black grid lines
 						},
 						ticks: {
-							color: "black", // Black tick color
+							color: "white", // White tick color
 						},
+						title: {
+							display: true,
+							color: "white", // White axis title color
+						},
+						border: {
+							color: 'white' // White main X axis color
+						}
 					},
 				},
 				plugins: {
 					legend: {
 						labels: {
-							color: "black", // Black legend text color
+							color: "white", // White legend text color
 						},
 					},
 				},
@@ -449,6 +463,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			},
 		});
 	}
+
 	// Function to fetch and display swap data
 	async function fetchSwapData() {
 		try {
