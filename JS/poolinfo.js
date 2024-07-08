@@ -57,27 +57,48 @@ document.addEventListener("DOMContentLoaded", function () {
 			],
 		},
 		options: {
-			scales: {
-				y: {
-					beginAtZero: true,
-					grid: { color: "rgba(255, 255, 255, 0.2)" },
-					ticks: { color: "white" },
+				scales: {
+					y: {
+						beginAtZero: true,
+						grid: { color: "rgba(255, 255, 255, 0.2)" },
+						ticks: {
+							font: {
+								family: "Kode Mono", // Use Poppins font family for Y-axis ticks
+								size: 12, // Adjust the font size for Y-axis ticks as needed
+							},
+							color: "white",
+						},
+					},
+					x: {
+						grid: { color: "rgba(255, 255, 255, 0.2)" },
+						ticks: {
+							font: {
+								family: "Kode Mono", // Use Poppins font family for Y-axis ticks
+								size: 12, // Adjust the font size for Y-axis ticks as needed
+							},
+							color: "white",
+						},
+					},
 				},
-				x: {
-					grid: { color: "rgba(255, 255, 255, 0.2)" },
-					ticks: { color: "white" },
-				},
-			},
-			plugins: {
-				legend: { labels: { color: "white" } },
-			},
-			responsive: true,
-		},
-	});
-    }
-    
-    // Initial fetches
-    fetchPoolInfo();
-    ChartData();
+				plugins: {
+					legend: {
+						labels: {
+							font: {
+								family: "Kode Mono", // Use Poppins font family
+								size: 14, // Adjust the font size as needed
+							},
 
+							color: "white",
+						},
+					},
+				},
+				responsive: true,
+			},
+		});
+	}
+
+	// Initial fetches
+	fetchPoolInfo();
+	ChartData();
 });
+
