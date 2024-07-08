@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-const uri = "mongodb+srv://meabbasoffical:XMpqdjr3xSrAPyq7@cluster0.ymtdfd2.mongodb.net/db3?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://meabbasoffical:XMpqdjr3xSrAPyq7@cluster0.ymtdfd2.mongodb.net/NexPool?retryWrites=true&w=majority&appName=Cluster0";
 
 // Connect to MongoDB Atlas
 mongoose.connect(uri)
