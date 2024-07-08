@@ -544,7 +544,6 @@ async function getSwapInfo(inputAmount, isWBTCtoRUNE) {
     }
 }
 
-
 async function storeSwapData(direction, amount, rate, address, estimatedAmount, transactionFee) {
     try {
         const now = new Date();
@@ -571,7 +570,6 @@ async function storeSwapData(direction, amount, rate, address, estimatedAmount, 
         // console.error("Error storing swap data:", error);
     }
 }
-
 
 async function swapWBTCtoRUNE(wbtcAmount) {
     try {
@@ -607,14 +605,25 @@ async function swapRUNEtoWBTC(runeAmount) {
     }
 }
 
-async function updatePoolInfo(amountRUNE, amountWBTC) {
+async function updatePoolInfo(runeAmount, wbtcAmount) {
     try {
+
+		const currentPoolInfoResponse = await fetch("https://server-js-inky.vercel.app/api/poolinfos");
+		const currentPoolInfo = await currentPoolInfoResponse.json();
+		const latestPoolInfo = currentPoolInfo[currentPoolInfo.length - 1];
+
+		let existingRuneAmount = parseFloat(latestPoolInfo.RuneChart);
+		let existingWbtcAmount = parseFloat(latestPoolInfo.WbtcChart);
+
+		runeAmount = existingRuneAmount ;
+		wbtcAmount = existingWbtcAmount ;
+		
         const response = await fetch('https://server-js-inky.vercel.app/api/updatePoolInfo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ amountRUNE, amountWBTC }),
+            body: JSON.stringify({ runeAmount, wbtcAmount }),
         });
         const data = await response.json();
         console.log("Updated Pool Info:", data);
@@ -622,11 +631,6 @@ async function updatePoolInfo(amountRUNE, amountWBTC) {
         console.error("Error updating pool info:", error);
     }
 }
-
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", async () => {
     await Connect();
