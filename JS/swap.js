@@ -550,7 +550,7 @@ async function storeSwapData(direction, amount, rate, address, estimatedAmount, 
         const now = new Date();
         const pkTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Karachi" }));
 
-        const response = await fetch('http://localhost:3000/api/storeSwapData', {
+        const response = await fetch('https://final-one-alpha.vercel.app/api/storeSwapData', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -609,7 +609,7 @@ async function swapRUNEtoWBTC(runeAmount) {
 
 async function updatePoolInfo(amountRUNE, amountWBTC) {
     try {
-        const response = await fetch('http://localhost:3000/api/updatePoolInfo', {
+        const response = await fetch('https://final-one-alpha.vercel.app/api/updatePoolInfo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
