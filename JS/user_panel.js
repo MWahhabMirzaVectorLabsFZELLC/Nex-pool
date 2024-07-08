@@ -681,7 +681,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             color: "rgba(0, 0, 0, 0.1)", // Lighter black grid lines
 						},
 						ticks: {
-							color: "white", // White tick color
+							font: {
+								family: "Kode Mono", // Use Poppins font family for Y-axis ticks
+								size: 12, // Adjust the font size for Y-axis ticks as needed
+							},
+							color: "white",
 						},
 						title: {
 							display: true,
@@ -696,7 +700,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             color: "rgba(0, 0, 0, 0.1)", // Lighter black grid lines
 						},
 						ticks: {
-							color: "white", // White tick color
+							font: {
+								family: "Kode Mono", // Use Poppins font family for Y-axis ticks
+								size: 12, // Adjust the font size for Y-axis ticks as needed
+							},
+							color: "white",
 						},
 						title: {
 							display: true,
@@ -710,7 +718,12 @@ document.addEventListener("DOMContentLoaded", function () {
 				plugins: {
 					legend: {
 						labels: {
-							color: "white", // White legend text color
+							font: {
+								family: "Kode Mono", // Use Poppins font family
+								size: 14, // Adjust the font size as needed
+							},
+
+							color: "white",
 						},
 					},
 				},
