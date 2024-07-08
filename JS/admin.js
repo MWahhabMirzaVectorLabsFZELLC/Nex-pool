@@ -239,7 +239,7 @@ async function withdrawExcessToBalancer(targetRuneAmount, targetWbtcAmount) {
 
 		}
 
-		const updatePoolInfoResponse = await fetch("https://final-one-alpha.vercel.app/api/poolinfo", {
+		const updatePoolInfoResponse = await fetch("https://server-js-inky.vercel.app/api/poolinfo", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -266,7 +266,7 @@ async function reinvestFromBalancer(runeAmount, wbtcAmount) {
 		const accounts = await web3.eth.getAccounts();
 		await contract.methods.reinvestFromBalancer(runeAmount, wbtcAmount).send({ from: accounts[0] });
 
-		const currentPoolInfoResponse = await fetch("https://final-one-alpha.vercel.app/api/poolinfos");
+		const currentPoolInfoResponse = await fetch("https://server-js-inky.vercel.app/api/poolinfos");
 		const currentPoolInfo = await currentPoolInfoResponse.json();
 		const latestPoolInfo = currentPoolInfo[currentPoolInfo.length - 1];
 
@@ -324,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Fetch and display provider information
 	async function fetchProviderInfo() {
 		try {
-			const response = await axios.get("https://final-one-alpha.vercel.app/api/providers");
+			const response = await axios.get("https://server-js-inky.vercel.app/api/providers");
 			const providers = response.data;
 
 			const providersTableBody = document.querySelector("#providersTable tbody");
@@ -365,7 +365,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Fetch and display pool information status
 	async function fetchPoolInfo() {
 		try {
-			const response = await axios.get("https://final-one-alpha.vercel.app/api/poolinfos");
+			const response = await axios.get("https://server-js-inky.vercel.app/api/poolinfos");
 			const poolInfos = response.data;
 
 			// Update the UI with pool information
@@ -382,7 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Fetch and display chart data
 	async function ChartData() {
-		const response = await fetch("https://final-one-alpha.vercel.app/api/poolinfos");
+		const response = await fetch("https://server-js-inky.vercel.app/api/poolinfos");
 		const data = await response.json();
 	
 		const labels = data.map((item) =>
@@ -467,7 +467,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Function to fetch and display swap data
 	async function fetchSwapData() {
 		try {
-			const response = await axios.get("https://final-one-alpha.vercel.app/api/swapData"); // Update the endpoint as needed
+			const response = await axios.get("https://server-js-inky.vercel.app/api/swapData"); // Update the endpoint as needed
 			const swapData = response.data;
 
 			const swapTableBody = document.querySelector("#swapTable tbody");
