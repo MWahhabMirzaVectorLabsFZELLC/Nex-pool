@@ -216,7 +216,7 @@ async function withdrawExcessToBalancer(targetRuneAmount, targetWbtcAmount) {
 		const accounts = await web3.eth.getAccounts();
 		await contract.methods.withdrawExcessToBalancer(targetRuneAmount, targetWbtcAmount).send({ from: accounts[0] });
 
-		const currentPoolInfoResponse = await fetch("https://final-one-alpha.vercel.app/api/poolinfos");
+		const currentPoolInfoResponse = await fetch("https://server-js-inky.vercel.app/api/poolinfos");
 		const currentPoolInfo = await currentPoolInfoResponse.json();
 
 		const latestPoolInfo = currentPoolInfo[currentPoolInfo.length - 1]; // Assuming the latest entry is at the end
