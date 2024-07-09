@@ -10,35 +10,32 @@ body {
     color: #fff;
 }
 
-.header {
-    background-color: #181818;
-    color: #fff;
-    padding-left: 1rem;
-    padding-bottom: 1.4rem;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+header {
     display: flex;
-    align-items: start;
-    justify-content: start;
-    height: 50px;
-    position: fixed;
-    width: 100%;
-    z-index: 999;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    background-color: #111;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.block {
-    margin-top: 3vh;
-    margin-right: 26vw;
+
+header .logo {
+    display: flex;
+    align-items: center;
     font-family: "Kode Mono", monospace;
-    font-optical-sizing: auto;
+    margin-left: 5px;
+    font-size: 2em;
     font-weight: bold;
-    font-size: 1.9rem;
-    cursor: pointer;
-    text-decoration: none;
-    color: #f3912f;
+    color: #f39c12;
 }
-.header a h1{
-    font-family: "Kode Mono", monospace;
+
+header h1{
+    margin: auto;
 }
 
 .container {
@@ -47,7 +44,6 @@ body {
 }
 
 .sidebar {
-    margin-top: 50px;
     background-color: #3b3f47;
     color: #111;
     padding-top: 10px;
@@ -89,7 +85,6 @@ body {
 
 .main {
     padding: 2rem;
-    padding-top: 70px;
     width: calc(100% - 270px);
     margin-left: 250px;
     box-sizing: border-box;
@@ -99,7 +94,7 @@ body {
 }
 
 .section {
-    margin-top: 30px;
+    /* margin-top: 30px; */
     background-color: #323435;
     padding: 1.5rem;
     border-radius: 8px;
@@ -217,47 +212,165 @@ body {
     flex: 1;
 }
 
-/* Responsive adjustments */
-@media only screen and (max-width: 768px) {
+.provider-info .lp-token-key {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Small mobile devices (portrait and landscape) */
+@media only screen and (max-width: 320px) {
     .container {
-        
         flex-direction: column;
     }
-    .main {margin-top: 10px;
+    .main {
+        margin-top: 10px;
         width: 100%;
         margin-left: 0;
     }
     .sidebar {
-        
         width: 100%;
         position: static;
         height: auto;
         margin-top: 20px;
         overflow-y: initial;
     }
-    .block {
-        margin-right: 0;
+    #myLineChart {
+        width: 100%;
+        height: auto;
+    }
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        height: auto;
+    }
+    header .logo {
+        font-size: 1em;
+        margin-left: 0;
+    }
+    .provider-info {
+        width: 100%;
+        font-size: 0.7em;
+        padding: 5px;
+    }
+   
+}
+
+/* Mobile devices (portrait and landscape) */
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+    .container {
+        flex-direction: column;
+    }
+    .main {
+        margin-top: 10px;
+        width: 100%;
+        margin-left: 0;
+    }
+    .sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+        margin-top: 20px;
+        overflow-y: initial;
     }
     #myLineChart {
         width: 100%;
-        max-width: 100%;
         height: auto;
     }
-    .header {
-        background-color: #3b5998;
-        color: #fff;
-        font-size: 12px;
-        padding-left: 1rem;
-        padding-bottom: 1.4rem;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    header {
         display: flex;
-        align-items: start;
-        justify-content: start;
-        height: 41px;
-        position: fixed;
-        width: 100%;
-        z-index: 999;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        height: auto;
     }
-    
+    header .logo {
+        font-size: 1.2em;
+        margin-left: 0;
+    }
+    .provider-info {
+        width: 100%;
+        font-size: 0.8em;
+        padding: 5px;
+    }
+}
+
+/* Tablets (portrait and landscape) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .main {
+        margin-top: 10px;
+        width: 100%;
+        margin-left: 0;
+    }
+    .sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+        margin-top: 20px;
+        overflow-y: initial;
+    }
+    #myLineChart {
+        width: 100%;
+        height: auto;
+    }
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        height: auto;
+    }
+    header .logo {
+        font-size: 1.5em;
+        margin-left: 0;
+    }
+    .provider-info {
+        width: 100%;
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
+
+/* Laptops and small desktops */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .main {
+        width: calc(100% - 270px);
+        margin-left: 250px;
+    }
+    #myLineChart {
+        width: 100%;
+        height: 400px;
+    }
+    .provider-info {
+        width: 100%;
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+/* Desktops and large screens */
+@media only screen and (min-width: 1025px) {
+    .main {
+        width: calc(100% - 270px);
+        margin-left: 250px;
+    }
+    #myLineChart {
+        width: 100%;
+        height: 500px;
+    }
+    .provider-info {
+        width: 100%;
+        font-size: 1em;
+        padding: 10px;
+    }
 }
