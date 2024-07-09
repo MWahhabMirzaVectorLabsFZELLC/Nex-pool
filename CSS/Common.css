@@ -36,7 +36,7 @@ header {
 
 header .logo {
     font-family: "Kode Mono", monospace;
-    margin-left: 40px;
+    margin-left:-55%;
     font-size: 2em;
     font-weight: bold;
     color: #f39c12;
