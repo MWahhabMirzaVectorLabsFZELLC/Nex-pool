@@ -10,34 +10,35 @@ body {
     color: #fff;
 }
 
-.header {
-    background-color: #181818;
-    color: #fff;
-    padding-left: 1rem;
-    padding-bottom: 1.4rem;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+header {
     display: flex;
-    align-items: start;
-    justify-content: start;
-    height: 50px;
-    position: fixed;
-    width: 100%;
-    z-index: 999;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    background-color: #111;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
 }
-.header a h1{
-    font-family: "Kode Mono", monospace;
-}
-.block {
-    margin-top: 3vh;
-    margin-right: 26vw;
-    font-family: "Kode Mono", monospace;
-    font-optical-sizing: auto;
-    font-weight: bold;
-    font-size: 1.9rem;
-    cursor: pointer;
+
+header a{
     text-decoration: none;
-    color: #f3912f;
+    color: #f39c12;
+
+}
+header .logo {
+    display: flex;
+    align-items: center;
+    font-family: "Kode Mono", monospace;
+    margin-left: 5px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+header h1{
+    margin: auto;
 }
 
 .container {
