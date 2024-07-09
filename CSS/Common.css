@@ -35,8 +35,10 @@ header {
 
 
 header .logo {
+    display: flex;
+    align-items: center;
     font-family: "Kode Mono", monospace;
-    margin-left:-55%;
+    margin-left: 5px;
     font-size: 2em;
     font-weight: bold;
     color: #f39c12;
