@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="imgs/logo1.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="imgs/logo1.png">
     <link rel="icon" type="image/png" sizes="32x32" href="imgs/logo1.png">
     <link rel="icon" type="image/png" sizes="16x16" href="imgs/logo1.png">
     <link rel="manifest" href="/site.webmanifest">
@@ -20,116 +20,145 @@
 </head>
 
 <body>
-      <header>
+    <div id="login-container">
+        
+        <form id="loginForm">
+            <h2>Admin Login</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="dashboard-container" style="display:none;">
+        <header>
             <div class="logo">
-                <img src="imgs/logo.png" alt="logo" style="height: 50px" ;>
+                <img src="imgs/logo.png" alt="logo" style="height: 50px;">
                 <a href="index.html">Nex-pool</a>
             </div>
             <h1>Admin Dashboard</h1>
         </header>
-    <div class="container">
-        <nav class="sidebar">
-            <ul>
-                <li><a href="#providers">Providers Info</a></li>
-                <li><a href="#swap">Swap Data</a></li> <!-- New Swap Data section link -->
-                <li><a href="#info">Pool Info</a></li>
-                <li><a href="#chart">Pool Chart</a></li>
-                <li><a href="#a1">Distribute Daily Profit</a></li>
-                <li><a href="#a2">Withdraw Excess to Balancer</a></li>
-                <li><a href="#a3">Reinvest from Balancer</a></li>
-            </ul>
-        </nav>
-        <main class="main">
-            <section id="providers" class="section">
-                <h2>Providers Information</h2>
-                <table id="providersTable">
-                    <thead>
-                        <tr>
-                            <th>Provider Address</th>
-                            <th>Amount WBTC</th>
-                            <th>Amount RUNE</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </section>
-            <section id="swap" class="section">
-                <h2>Swap Data</h2>
-                <table id="swapTable">
-                    <thead>
-                        <tr>
-                            <th>Direction</th>
-                            <th>Amt</th>
-                            <th>Rate</th>
-                            <th>Address</th>
-                            <th>Est Amt</th>
-                            <th>Tx Fee</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </section>
 
-            <section id="info">
-                <div id="info" class="liquidity-pools">
-                    <h2>Pool Info</h2>
-                    <div class="pool">
-                        <div class="pool-info">
-                            <div id="amountRune"></div>
-                            <div id="amountWbtc"></div>
+        <div class="container">
+            <nav class="sidebar">
+                <ul>
+                    <li><a href="#providers">Providers Info</a></li>
+                    <li><a href="#swap">Swap Data</a></li> <!-- New Swap Data section link -->
+                    <li><a href="#info">Pool Info</a></li>
+                    <li><a href="#chart">Pool Chart</a></li>
+                    <li><a href="#a1">Distribute Daily Profit</a></li>
+                    <li><a href="#a2">Withdraw Excess to Balancer</a></li>
+                    <li><a href="#a3">Reinvest from Balancer</a></li>
+                </ul>
+            </nav>
+            <main class="main">
+                <section id="providers" class="section">
+                    <h2>Providers Information</h2>
+                    <table id="providersTable">
+                        <thead>
+                            <tr>
+                                <th>Provider Address</th>
+                                <th>Amount WBTC</th>
+                                <th>Amount RUNE</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </section>
+                <section id="swap" class="section">
+                    <h2>Swap Data</h2>
+                    <table id="swapTable">
+                        <thead>
+                            <tr>
+                                <th>Direction</th>
+                                <th>Amt</th>
+                                <th>Rate</th>
+                                <th>Address</th>
+                                <th>Est Amt</th>
+                                <th>Tx Fee</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="info">
+                    <div id="info" class="liquidity-pools">
+                        <h2>Pool Info</h2>
+                        <div class="pool">
+                            <div class="pool-info">
+                                <div id="amountRune"></div>
+                                <div id="amountWbtc"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            <section id="chart">
-
-                <div id="chart" class="chart-container">
-                    <h2 class="section-heading">Pool Chart</h2>
-                    <canvas id="myLineChart"></canvas>
-                </div>
-            </section>
-            <section id="a1">
-
-                <div id="a1" class="a1">
-                    <h2 class="section-heading">Distribute Daily Profit</h2>
-                    <button id="distributeProfitButton">Distribute Daily Profit</button>
-                </div>
-            </section>
-            <section id="a2">
-                <div id="a2" class="a2">
-                    <h3>Withdraw Excess to Balancer</h3>
-                    <form id="withdrawExcessForm">
-                        <label for="withdrawTargetRuneAmount">Target RUNE Amount:</label>
-                        <input type="number" id="withdrawTargetRuneAmount" required>
-                        <label for="withdrawTargetWbtcAmount">Target WBTC Amount:</label>
-                        <input type="number" id="withdrawTargetWbtcAmount" required>
-                        <button type="submit">Withdraw Excess</button>
-                    </form>
-                </div>
-            </section>
-            <section id="a3">
-
-                <div id="a3" class="a3">
-                    <h3>Reinvest from Balancer</h3>
-                    <form id="reinvestForm">
-                        <label for="reinvestRuneAmount">RUNE Amount:</label>
-                        <input type="number" id="reinvestRuneAmount" required>
-                        <label for="reinvestWbtcAmount">WBTC Amount:</label>
-                        <input type="number" id="reinvestWbtcAmount" required>
-                        <button type="submit">Reinvest</button>
-                    </form>
-                </div>
-            </section>
-        </main>
+                </section>
+                <section id="chart">
+                    <div id="chart" class="chart-container">
+                        <h2 class="section-heading">Pool Chart</h2>
+                        <canvas id="myLineChart"></canvas>
+                    </div>
+                </section>
+                <section id="a1">
+                    <div id="a1" class="a1">
+                        <h2 class="section-heading">Distribute Daily Profit</h2>
+                        <button id="distributeProfitButton">Distribute Daily Profit</button>
+                    </div>
+                </section>
+                <section id="a2">
+                    <div id="a2" class="a2">
+                        <h3>Withdraw Excess to Balancer</h3>
+                        <form id="withdrawExcessForm">
+                            <label for="withdrawTargetRuneAmount">Target RUNE Amount:</label>
+                            <input type="number" id="withdrawTargetRuneAmount" required>
+                            <label for="withdrawTargetWbtcAmount">Target WBTC Amount:</label>
+                            <input type="number" id="withdrawTargetWbtcAmount" required>
+                            <button type="submit">Withdraw Excess</button>
+                        </form>
+                    </div>
+                </section>
+                <section id="a3">
+                    <div id="a3" class="a3">
+                        <h3>Reinvest from Balancer</h3>
+                        <form id="reinvestForm">
+                            <label for="reinvestRuneAmount">RUNE Amount:</label>
+                            <input type="number" id="reinvestRuneAmount" required>
+                            <label for="reinvestWbtcAmount">WBTC Amount:</label>
+                            <input type="number" id="reinvestWbtcAmount" required>
+                            <button type="submit">Reinvest</button>
+                        </form>
+                    </div>
+                </section>
+            </main>
+        </div>
     </div>
 
     <script src="JS/admin.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            const loginForm = document.getElementById("loginForm");
+            const loginContainer = document.getElementById("login-container");
+            const dashboardContainer = document.getElementById("dashboard-container");
+
+            loginForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+
+                if (username === "admin" && password === "admin123") {
+                    loginContainer.style.display = "none";
+                    dashboardContainer.style.display = "block";
+                } else {
+                    alert("Invalid username or password");
+                }
+            });
+
             const sidebarLinks = document.querySelectorAll(".sidebar ul li a");
             const sections = document.querySelectorAll(".main section");
 
@@ -157,7 +186,6 @@
                 });
             });
         });
-
     </script>
 </body>
 
