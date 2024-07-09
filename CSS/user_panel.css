@@ -24,6 +24,11 @@ header {
 }
 
 
+header a{
+    text-decoration: none;
+    color: #f39c12;
+
+}
 header .logo {
     display: flex;
     align-items: center;
@@ -31,7 +36,6 @@ header .logo {
     margin-left: 5px;
     font-size: 2em;
     font-weight: bold;
-    color: #f39c12;
 }
 
 header h1{
