@@ -47,7 +47,6 @@ header h1{
 }
 
 .sidebar {
-    margin-top: 50px;
     background-color: #3b3f47;
     color: #111;
     padding-top: 10px;
@@ -100,7 +99,6 @@ header h1{
 }
 
 .section {
-    margin-top: 30px;
     background-color: #323435;
     padding: 1.5rem;
     border-radius: 8px;
