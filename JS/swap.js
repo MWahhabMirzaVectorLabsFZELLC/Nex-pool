@@ -529,6 +529,36 @@ async function Connect() {
 
 //okx
 
+
+async function connectOKXWallet() {
+	if (typeof window.okxwallet !== 'undefined') {
+		console.log('OKX Wallet is installed!');
+
+		try {
+			// Request account access
+			const accounts = await window.okxwallet.request({
+				method: 'eth_requestAccounts'
+			});
+
+			// Get the user's account address
+			document.getElementById('check2').style = 'none';
+
+			// You can now use the account to interact with your smart contract or perform other tasks
+		} catch (error) {
+			console.error('User denied account access or error occurred:', error);
+		}
+	} else {
+		console.log('OKX Wallet is not installed.');
+	}
+
+	contract = new web3.eth.Contract(abi, address);
+}
+
+
+
+
+//bitget
+
 async function getSwapInfo(inputAmount, isWBTCtoRUNE) {
     try {
         if (!inputAmount || isNaN(inputAmount)) {
