@@ -503,21 +503,31 @@ var abi = [
 	}
 ]; // Replace with your contract ABI
 
-async function Connect() {
-	
-    if (window.ethereum) {
-        try {
-            await window.ethereum.request({ method: "eth_requestAccounts" });
-            web3 = new Web3(window.ethereum);
-            updateButton("Connected");
-        } catch (error) {}
-    } else {
-        web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
-        updateButton("Connected");
-    }
 
-    contract = new web3.eth.Contract(abi, address);
+//metamask
+async function Connect() {
+	if (window.ethereum) {
+		try {
+			await window.ethereum.request({ method: "eth_requestAccounts" });
+			document.getElementById('check1').style = 'none';
+			web3 = new Web3(window.ethereum);
+			updateButton("Connected");
+			
+		} catch (error) {
+			console.error("User denied account access");
+		}
+	} else {
+		web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
+	
+		updateButton("Connected");
+	}
+
+	contract = new web3.eth.Contract(abi, address);
 }
+
+
+
+//okx
 
 async function getSwapInfo(inputAmount, isWBTCtoRUNE) {
     try {
