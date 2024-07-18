@@ -558,6 +558,28 @@ async function connectOKXWallet() {
 
 
 //bitget
+function requestAccounts() {
+    const provider = window.bitkeep && window.bitkeep.ethereum;
+
+    if (provider) {
+        provider.request({
+            method: "eth_requestAccounts"
+        }).then((accounts) => {
+            // success
+			document.getElementById('check3').style = 'none';
+        }).catch((error) => {
+            // fail
+            console.error('Error requesting accounts:', error);
+        });
+    } else {
+        alert('Wallet is not installed. Please install the BitKeep wallet.');
+        window.open('https://web3.bitget.com/en/wallet-download?type=2');
+    }
+	contract = new web3.eth.Contract(abi, address);
+}
+
+
+
 
 async function getSwapInfo(inputAmount, isWBTCtoRUNE) {
     try {
