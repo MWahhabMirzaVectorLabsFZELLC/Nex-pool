@@ -131,6 +131,31 @@
             <p>&copy; 2024 Nex-pool. All rights reserved.</p>
         </div>
     </footer>
+
+     <!-- Popup HTML -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Select Your Wallet</h2>
+            <div class="wallet-list">
+                <div class="wallet-item" onclick="Connect() ">
+                    <img src="imgs/metamask.png" alt="MetaMask">
+                    <p >MetaMask Wallet<span class="material-symbols-outlined" style="display: none;" id="check1">check
+                    </span></p>
+                </div>
+                <div class="wallet-item" onclick="connectOKXWallet()">
+                    <img src="imgs/okx-seeklogo.svg" alt="Coinbase Wallet">
+                    <p >OKX Wallet <span class="material-symbols-outlined" style="display: none;" id="check2">check
+                    </span></p>
+                </div>
+                <div class="wallet-item" onclick="requestAccounts()">
+                    <img src="imgs/bitget.png" alt="Trust Wallet">
+                    <p>BitGet Wallet<span class="material-symbols-outlined" style="display: none;" id="check3">check
+                        </span></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/web3@1.6.1/dist/web3.min.js"></script>
     <script src="JS/swap.js"></script>
 </body>
