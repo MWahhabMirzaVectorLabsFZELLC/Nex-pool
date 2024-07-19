@@ -503,6 +503,26 @@ var abi = [
 	}
 ]; // Replace with your contract ABI
 
+// Call the function to check for MetaMask installation and unisat on page load
+window.addEventListener('load', () => {
+    if (window.ethereum) {
+        document.getElementById('connector').textContent = "Installed";
+    } else {
+        document.getElementById('connector').textContent = "Not Installed";
+		document.getElementById('connector').style.backgroundColor = "red";
+		document.getElementById('connector').style.fontSize = "8px";
+    }
+
+	if( window.unisat ){
+		document.getElementById('uniConnect').textContent = "Installed";
+
+	}else{
+		document.getElementById('uniConnect').textContent = "Not Installed";
+		document.getElementById('uniConnect').style.backgroundColor = "red";
+		document.getElementById('uniConnect').style.fontSize = "8px";
+	}
+});
+
 
 //METAMASK
 async function Connect() {
@@ -525,24 +545,7 @@ async function Connect() {
     contract = new web3.eth.Contract(abi, address);
 }
 
-function updateButton(text) {
-    // Assuming you have a button or element to update with the connection status
-    const button = document.getElementById('connectButton');
-    if (button) {
-        button.textContent = text;
-    }
-}
 
-// Call the function to check for MetaMask installation on page load
-window.addEventListener('load', () => {
-    if (window.ethereum) {
-        document.getElementById('connector').textContent = "Installed";
-    } else {
-        document.getElementById('connector').textContent = "Not Installed";
-		document.getElementById('connector').style.backgroundColor = "red";
-		document.getElementById('connector').style.fontSize = "8px";
-    }
-});
 
 // Event listener for the connect button
 document.getElementById('connectButton').addEventListener('click', Connect);
@@ -597,11 +600,15 @@ async function connectOKXWallet() {
 
 //UNISAT
 const connectWalletBtn = document.getElementById('connectUniSat')
+
 connectWalletBtn.addEventListener("click", async () => {
     try {
       if (typeof window.unisat !== 'undefined') {
+		document.getElementById('uniConnect').textContent = "installed"
         const accounts = await window.unisat.requestAccounts();
-      } 
+        const address = accounts[0]; // Assuming the first account is the active one
+      
+      }
     } catch (error) {
       if (error.code === 4001) {
         // User rejected the connection request
