@@ -504,26 +504,64 @@ var abi = [
 ]; // Replace with your contract ABI
 
 
-//metamask
+//METAMASK
 async function Connect() {
-	if (window.ethereum) {
-		try {
-			await window.ethereum.request({ method: "eth_requestAccounts" });
-			document.getElementById('check1').style = 'none';
-			web3 = new Web3(window.ethereum);
-			updateButton("Connected");
-			
-		} catch (error) {
-			console.error("User denied account access");
-		}
-	} else {
-		web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
-	
-		updateButton("Connected");
-	}
+    if (window.ethereum) {
+        try {
+            await window.ethereum.request({ method: "eth_requestAccounts" });
+            web3 = new Web3(window.ethereum);
+            updateButton("Connected");
+            document.getElementById('connector').textContent = "Installed";
+        } catch (error) {
+            console.error("User denied account access");
+        }
+    } else {
+        web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
+        updateButton("Connected");
+        document.getElementById('connector').textContent = "Not Installed";
+		document.getElementById('connector').style.color = "black";
+    }
 
-	contract = new web3.eth.Contract(abi, address);
+    contract = new web3.eth.Contract(abi, address);
 }
+
+function updateButton(text) {
+    // Assuming you have a button or element to update with the connection status
+    const button = document.getElementById('connectButton');
+    if (button) {
+        button.textContent = text;
+    }
+}
+
+// Call the function to check for MetaMask installation on page load
+window.addEventListener('load', () => {
+    if (window.ethereum) {
+        document.getElementById('connector').textContent = "Installed";
+    } else {
+        document.getElementById('connector').textContent = "Not Installed";
+		document.getElementById('connector').style.backgroundColor = "red";
+		document.getElementById('connector').style.fontSize = "8px";
+    }
+});
+
+// Event listener for the connect button
+document.getElementById('connectButton').addEventListener('click', Connect);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -557,26 +595,24 @@ async function connectOKXWallet() {
 
 
 
-//bitget
-function requestAccounts() {
-    const provider = window.bitkeep && window.bitkeep.ethereum;
-
-    if (provider) {
-        provider.request({
-            method: "eth_requestAccounts"
-        }).then((accounts) => {
-            // success
-			document.getElementById('check3').style = 'none';
-        }).catch((error) => {
-            // fail
-            console.error('Error requesting accounts:', error);
-        });
-    } else {
-        alert('Wallet is not installed. Please install the BitKeep wallet.');
-        window.open('https://web3.bitget.com/en/wallet-download?type=2');
+//UNISAT
+const connectWalletBtn = document.getElementById('connectUniSat')
+connectWalletBtn.addEventListener("click", async () => {
+    try {
+      if (typeof window.unisat !== 'undefined') {
+        const accounts = await window.unisat.requestAccounts();
+      } 
+    } catch (error) {
+      if (error.code === 4001) {
+        // User rejected the connection request
+        console.log('User rejected the connection request.');
+        // Optionally, display a message to the user explaining why access to the wallet is needed
+      } else {
+        // Other errors
+        console.error('Error connecting to UniSat Wallet:', error);
+      }
     }
-	contract = new web3.eth.Contract(abi, address);
-}
+  });
 
 
 
