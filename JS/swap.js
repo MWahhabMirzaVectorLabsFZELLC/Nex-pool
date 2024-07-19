@@ -503,6 +503,8 @@ var abi = [
 	}
 ]; // Replace with your contract ABI
 
+var contract;
+
 // Call the function to check for MetaMask installation and unisat on page load
 window.addEventListener('load', () => {
     if (window.ethereum) {
