@@ -547,8 +547,7 @@ async function Connect() {
 
 
 
-// Event listener for the connect button
-document.getElementById('connectButton').addEventListener('click', Connect);
+
 
 
 
