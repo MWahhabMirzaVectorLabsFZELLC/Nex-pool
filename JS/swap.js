@@ -542,94 +542,67 @@ window.addEventListener("load", () => {
 
 //METAMASK
 async function Connect() {
-    if (window.ethereum) {
-        try {
-            await window.ethereum.request({ method: "eth_requestAccounts" });
-            web3 = new Web3(window.ethereum);
-            updateButton("Connected");
-            document.getElementById('connector').textContent = "Installed";
-        } catch (error) {
-            console.error("User denied account access");
-        }
-    } else {
-        web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
-        updateButton("Connected");
-        document.getElementById('connector').textContent = "Not Installed";
-		document.getElementById('connector').style.color = "black";
-    }
-
-    contract = new web3.eth.Contract(abi, address);
-}
-
-
-
-
-
-//okx
-
-
-
-document.getElementById('okxWallet').addEventListener('click', async () => {
-    try {
-
-            // Request accounts
-            const accounts = await window.okxwallet.request({ method: 'eth_requestAccounts' });
-
-            // Log the connected account
-            console.log('Connected account:', accounts[0]);
-            
-            // You can now interact with the OKX Wallet
-            // For example, get the user's Ethereum address
-            const userAddress = accounts[0];
-            console.log('User address:', userAddress);
-
-            // You can also check the user's balance or perform other actions
-            // Example: Get balance
-            const balance = await window.okxwallet.request({ 
-                method: 'eth_getBalance', 
-                params: [userAddress, 'latest'] 
-            });
-            console.log('User balance:', balance);
-			contract = new web3.eth.Contract(abi, address);
-
-        
-    } catch (error) {
-        console.error('Error connecting to OKX Wallet:', error);
-    }
-
-	
-});
-
-
-
-
-
-
-//UNISAT
-const connectWalletBtn = document.getElementById('connectUniSat')
-
-connectWalletBtn.addEventListener("click", async () => {
-    try {
-      if (typeof window.unisat !== 'undefined') {
-		document.getElementById('uniConnect').textContent = "installed"
-        const accounts = await window.unisat.requestAccounts();
-        const address = accounts[0]; // Assuming the first account is the active one
-      
-      }
-    } catch (error) {
-      if (error.code === 4001) {
-        // User rejected the connection request
-        console.log('User rejected the connection request.');
-        // Optionally, display a message to the user explaining why access to the wallet is needed
-      } else {
-        // Other errors
-        console.error('Error connecting to UniSat Wallet:', error);
-      }
-    }
+	if (window.ethereum) {
+		try {
+			await window.ethereum.request({ method: "eth_requestAccounts" });
+			web3 = new Web3(window.ethereum);
+			updateButton("Connected");
+		} catch (error) {
+			console.error("User denied account access");
+		}
+	} else {
+		web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
+		updateButton("Connected");
+	}
 
 	contract = new web3.eth.Contract(abi, address);
-  });
+}
 
+//okx
+async function okxConnect() {
+	try {
+		// Request accounts
+		await window.okxwallet.request({
+			method: "eth_requestAccounts",
+		});
+
+		contract = new web3.eth.Contract(abi, address);
+	} catch (error) {
+		console.error("Error connecting to OKX Wallet:", error);
+	}
+}
+
+//UNISAT
+async function unisatConnect() {
+	try {
+		if (typeof window.unisat !== "undefined") {
+			document.getElementById("uniConnect").textContent = "installed";
+			await window.unisat.requestAccounts();
+		}
+	} catch (error) {
+		if (error.code === 4001) {
+			// User rejected the connection request
+			console.log("User rejected the connection request.");
+			// Optionally, display a message to the user explaining why access to the wallet is needed
+		} else {
+			// Other errors
+			console.error("Error connecting to UniSat Wallet:", error);
+		}
+	}
+
+	contract = new web3.eth.Contract(abi, address);
+}
+
+//wizzwalet
+async function connectToWizzWallet() {
+	try {
+		await wizz.requestAccounts();
+		console.log("Connect success");
+	} catch (error) {
+		console.error("Connect failed:", error);
+		// Handle error, maybe display a message to the user
+	}
+}
 
 
 
