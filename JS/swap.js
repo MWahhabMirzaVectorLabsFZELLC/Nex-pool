@@ -504,36 +504,40 @@ var abi = [
 ]; // Replace with your contract ABI
 
 var contract;
-
 // Call the function to check for MetaMask installation and unisat on page load
-window.addEventListener('load', () => {
-    if (window.ethereum) {
-        document.getElementById('connector').textContent = "Installed";
-    } else {
-        document.getElementById('connector').textContent = "Not Installed";
-		document.getElementById('connector').style.backgroundColor = "red";
-		document.getElementById('connector').style.fontSize = "8px";
-    }
+window.addEventListener("load", () => {
+	if (window.ethereum) {
+		document.getElementById("connector").textContent = "Installed";
+	} else {
+		document.getElementById("connector").textContent = "Not Installed";
+		document.getElementById("connector").style.backgroundColor = "red";
+		document.getElementById("connector").style.fontSize = "8px";
+	}
 
-	if( window.unisat ){
-		document.getElementById('uniConnect').textContent = "Installed";
-
-	}else{
-		document.getElementById('uniConnect').textContent = "Not Installed";
-		document.getElementById('uniConnect').style.backgroundColor = "red";
-		document.getElementById('uniConnect').style.fontSize = "8px";
+	if (window.unisat) {
+		document.getElementById("uniConnect").textContent = "Installed";
+	} else {
+		document.getElementById("uniConnect").textContent = "Not Installed";
+		document.getElementById("uniConnect").style.backgroundColor = "red";
+		document.getElementById("uniConnect").style.fontSize = "8px";
 	}
 
 	if (typeof window.okxwallet !== "undefined") {
-		document.getElementById('okxConnect').textContent = "Installed";
-	}else{
-		document.getElementById('okxConnect').textContent = "Not Installed";
-		document.getElementById('okxConnect').style.backgroundColor = "red";
-		document.getElementById('okxConnect').style.fontSize = "8px";
+		document.getElementById("okxConnect").textContent = "Installed";
+	} else {
+		document.getElementById("okxConnect").textContent = "Not Installed";
+		document.getElementById("okxConnect").style.backgroundColor = "red";
+		document.getElementById("okxConnect").style.fontSize = "8px";
 	}
 
+	if (typeof window.wizz !== "undefined") {
+		document.getElementById("wizzConnect").textContent = "Installed";
+	} else {
+		document.getElementById("wizzConnect").textContent = "Not Installed";
+		document.getElementById("wizzConnect").style.backgroundColor = "red";
+		document.getElementById("wizzConnect").style.fontSize = "8px";
 	}
-);
+});
 
 
 //METAMASK
