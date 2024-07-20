@@ -523,7 +523,17 @@ window.addEventListener('load', () => {
 		document.getElementById('uniConnect').style.backgroundColor = "red";
 		document.getElementById('uniConnect').style.fontSize = "8px";
 	}
-});
+
+	if (typeof window.okxwallet !== "undefined") {
+		document.getElementById('okxConnect').textContent = "Installed";
+	}else{
+		document.getElementById('okxConnect').textContent = "Not Installed";
+		document.getElementById('okxConnect').style.backgroundColor = "red";
+		document.getElementById('okxConnect').style.fontSize = "8px";
+	}
+
+	}
+);
 
 
 //METAMASK
@@ -551,50 +561,39 @@ async function Connect() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //okx
 
 
-async function connectOKXWallet() {
-	if (typeof window.okxwallet !== 'undefined') {
-		console.log('OKX Wallet is installed!');
 
-		try {
-			// Request account access
-			const accounts = await window.okxwallet.request({
-				method: 'eth_requestAccounts'
-			});
+document.getElementById('okxWallet').addEventListener('click', async () => {
+    try {
 
-			// Get the user's account address
-			document.getElementById('check2').style = 'none';
+            // Request accounts
+            const accounts = await window.okxwallet.request({ method: 'eth_requestAccounts' });
 
-			// You can now use the account to interact with your smart contract or perform other tasks
-		} catch (error) {
-			console.error('User denied account access or error occurred:', error);
-		}
-	} else {
-		console.log('OKX Wallet is not installed.');
-	}
+            // Log the connected account
+            console.log('Connected account:', accounts[0]);
+            
+            // You can now interact with the OKX Wallet
+            // For example, get the user's Ethereum address
+            const userAddress = accounts[0];
+            console.log('User address:', userAddress);
+
+            // You can also check the user's balance or perform other actions
+            // Example: Get balance
+            const balance = await window.okxwallet.request({ 
+                method: 'eth_getBalance', 
+                params: [userAddress, 'latest'] 
+            });
+            console.log('User balance:', balance);
+
+        
+    } catch (error) {
+        console.error('Error connecting to OKX Wallet:', error);
+    }
 
 	contract = new web3.eth.Contract(abi, address);
-}
+});
 
 
 
@@ -620,7 +619,10 @@ connectWalletBtn.addEventListener("click", async () => {
         console.error('Error connecting to UniSat Wallet:', error);
       }
     }
+
+	contract = new web3.eth.Contract(abi, address);
   });
+
 
 
 
