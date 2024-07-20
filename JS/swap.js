@@ -586,14 +586,17 @@ document.getElementById('okxWallet').addEventListener('click', async () => {
                 params: [userAddress, 'latest'] 
             });
             console.log('User balance:', balance);
+			contract = new web3.eth.Contract(abi, address);
 
         
     } catch (error) {
         console.error('Error connecting to OKX Wallet:', error);
     }
 
-	contract = new web3.eth.Contract(abi, address);
+	
 });
+
+
 
 
 
