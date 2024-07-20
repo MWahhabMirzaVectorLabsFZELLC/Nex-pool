@@ -2,508 +2,509 @@ var web3;
 var address = "0xFfcF002C9f8e01ce9c3Bd3e9feD314Eb5acC6210"; // Replace with your contract address
 var abi = [
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "address",
-				"name": "_feeCollector",
-				"type": "address"
+				internalType: "address",
+				name: "_feeCollector",
+				type: "address",
 			},
 			{
-				"internalType": "address",
-				"name": "_balancerAccount",
-				"type": "address"
-			}
+				internalType: "address",
+				name: "_balancerAccount",
+				type: "address",
+			},
 		],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
+		stateMutability: "nonpayable",
+		type: "constructor",
 	},
 	{
-		"anonymous": false,
-		"inputs": [
+		anonymous: false,
+		inputs: [
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amountRUNE",
-				"type": "uint256"
+				indexed: false,
+				internalType: "uint256",
+				name: "amountRUNE",
+				type: "uint256",
 			},
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amountWBTC",
-				"type": "uint256"
-			}
+				indexed: false,
+				internalType: "uint256",
+				name: "amountWBTC",
+				type: "uint256",
+			},
 		],
-		"name": "BalancerReinvested",
-		"type": "event"
+		name: "BalancerReinvested",
+		type: "event",
 	},
 	{
-		"anonymous": false,
-		"inputs": [
+		anonymous: false,
+		inputs: [
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "totalProfitWBTC",
-				"type": "uint256"
+				indexed: false,
+				internalType: "uint256",
+				name: "totalProfitWBTC",
+				type: "uint256",
 			},
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "totalProfitRUNE",
-				"type": "uint256"
+				indexed: false,
+				internalType: "uint256",
+				name: "totalProfitRUNE",
+				type: "uint256",
 			},
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "ownerProfitWBTC",
-				"type": "uint256"
+				indexed: false,
+				internalType: "uint256",
+				name: "ownerProfitWBTC",
+				type: "uint256",
 			},
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "ownerProfitRUNE",
-				"type": "uint256"
-			}
+				indexed: false,
+				internalType: "uint256",
+				name: "ownerProfitRUNE",
+				type: "uint256",
+			},
 		],
-		"name": "DailyProfitDistributed",
-		"type": "event"
+		name: "DailyProfitDistributed",
+		type: "event",
 	},
 	{
-		"inputs": [],
-		"name": "distributeDailyProfit",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		inputs: [],
+		name: "distributeDailyProfit",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
 	},
 	{
-		"anonymous": false,
-		"inputs": [
+		anonymous: false,
+		inputs: [
 			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
+				indexed: true,
+				internalType: "address",
+				name: "to",
+				type: "address",
 			},
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amountRUNE",
-				"type": "uint256"
+				indexed: false,
+				internalType: "uint256",
+				name: "amountRUNE",
+				type: "uint256",
 			},
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amountWBTC",
-				"type": "uint256"
-			}
+				indexed: false,
+				internalType: "uint256",
+				name: "amountWBTC",
+				type: "uint256",
+			},
 		],
-		"name": "ExcessWithdrawn",
-		"type": "event"
+		name: "ExcessWithdrawn",
+		type: "event",
 	},
 	{
-		"anonymous": false,
-		"inputs": [
+		anonymous: false,
+		inputs: [
 			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
+				indexed: true,
+				internalType: "address",
+				name: "user",
+				type: "address",
 			},
 			{
-				"indexed": false,
-				"internalType": "bytes32",
-				"name": "lpTokenKey",
-				"type": "bytes32"
-			}
+				indexed: false,
+				internalType: "bytes32",
+				name: "lpTokenKey",
+				type: "bytes32",
+			},
 		],
-		"name": "LPGeneration",
-		"type": "event"
+		name: "LPGeneration",
+		type: "event",
 	},
 	{
-		"anonymous": false,
-		"inputs": [
+		anonymous: false,
+		inputs: [
 			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
+				indexed: true,
+				internalType: "address",
+				name: "user",
+				type: "address",
 			},
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amountWBTC",
-				"type": "uint256"
+				indexed: false,
+				internalType: "uint256",
+				name: "amountWBTC",
+				type: "uint256",
 			},
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amountRUNE",
-				"type": "uint256"
-			}
+				indexed: false,
+				internalType: "uint256",
+				name: "amountRUNE",
+				type: "uint256",
+			},
 		],
-		"name": "LiquidityRemoved",
-		"type": "event"
+		name: "LiquidityRemoved",
+		type: "event",
 	},
 	{
-		"anonymous": false,
-		"inputs": [
+		anonymous: false,
+		inputs: [
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "targetAmountRUNE",
-				"type": "uint256"
+				indexed: false,
+				internalType: "uint256",
+				name: "targetAmountRUNE",
+				type: "uint256",
 			},
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "targetAmountWBTC",
-				"type": "uint256"
-			}
+				indexed: false,
+				internalType: "uint256",
+				name: "targetAmountWBTC",
+				type: "uint256",
+			},
 		],
-		"name": "PoolRebalanced",
-		"type": "event"
+		name: "PoolRebalanced",
+		type: "event",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "uint256",
-				"name": "_runeAmount",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "_runeAmount",
+				type: "uint256",
 			},
 			{
-				"internalType": "uint256",
-				"name": "_wbtcAmount",
-				"type": "uint256"
-			}
+				internalType: "uint256",
+				name: "_wbtcAmount",
+				type: "uint256",
+			},
 		],
-		"name": "provideLiquidity",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		name: "provideLiquidity",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "uint256",
-				"name": "amountRUNE",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "amountRUNE",
+				type: "uint256",
 			},
 			{
-				"internalType": "uint256",
-				"name": "amountWBTC",
-				"type": "uint256"
-			}
+				internalType: "uint256",
+				name: "amountWBTC",
+				type: "uint256",
+			},
 		],
-		"name": "reinvestFromBalancer",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		name: "reinvestFromBalancer",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "uint256",
-				"name": "amountWBTC",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "amountWBTC",
+				type: "uint256",
 			},
 			{
-				"internalType": "uint256",
-				"name": "amountRUNE",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "amountRUNE",
+				type: "uint256",
 			},
 			{
-				"internalType": "bytes32",
-				"name": "lpTokenKey",
-				"type": "bytes32"
-			}
+				internalType: "bytes32",
+				name: "lpTokenKey",
+				type: "bytes32",
+			},
 		],
-		"name": "removeLiquidity",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		name: "removeLiquidity",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "address",
-				"name": "_runeTokenAddress",
-				"type": "address"
+				internalType: "address",
+				name: "_runeTokenAddress",
+				type: "address",
 			},
 			{
-				"internalType": "address",
-				"name": "_wbtcTokenAddress",
-				"type": "address"
-			}
+				internalType: "address",
+				name: "_wbtcTokenAddress",
+				type: "address",
+			},
 		],
-		"name": "setTokens",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		name: "setTokens",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
 	},
 	{
-		"anonymous": false,
-		"inputs": [
+		anonymous: false,
+		inputs: [
 			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
+				indexed: true,
+				internalType: "address",
+				name: "user",
+				type: "address",
 			},
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "inputAmount",
-				"type": "uint256"
+				indexed: false,
+				internalType: "uint256",
+				name: "inputAmount",
+				type: "uint256",
 			},
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "outputAmount",
-				"type": "uint256"
+				indexed: false,
+				internalType: "uint256",
+				name: "outputAmount",
+				type: "uint256",
 			},
 			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "inputToken",
-				"type": "address"
+				indexed: false,
+				internalType: "address",
+				name: "inputToken",
+				type: "address",
 			},
 			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "outputToken",
-				"type": "address"
-			}
+				indexed: false,
+				internalType: "address",
+				name: "outputToken",
+				type: "address",
+			},
 		],
-		"name": "Swapped",
-		"type": "event"
+		name: "Swapped",
+		type: "event",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "uint256",
-				"name": "_amountRUNE",
-				"type": "uint256"
-			}
+				internalType: "uint256",
+				name: "_amountRUNE",
+				type: "uint256",
+			},
 		],
-		"name": "swapRUNEtoWBTC",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		name: "swapRUNEtoWBTC",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "uint256",
-				"name": "amountWBTC",
-				"type": "uint256"
-			}
+				internalType: "uint256",
+				name: "amountWBTC",
+				type: "uint256",
+			},
 		],
-		"name": "swapWBTCtoRUNE",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		name: "swapWBTCtoRUNE",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "uint256",
-				"name": "targetAmountRUNE",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "targetAmountRUNE",
+				type: "uint256",
 			},
 			{
-				"internalType": "uint256",
-				"name": "targetAmountWBTC",
-				"type": "uint256"
-			}
+				internalType: "uint256",
+				name: "targetAmountWBTC",
+				type: "uint256",
+			},
 		],
-		"name": "withdrawExcessToBalancer",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		name: "withdrawExcessToBalancer",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
 	},
 	{
-		"inputs": [],
-		"name": "getPoolInfo",
-		"outputs": [
+		inputs: [],
+		name: "getPoolInfo",
+		outputs: [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "",
+				type: "uint256",
 			},
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
+				internalType: "uint256",
+				name: "",
+				type: "uint256",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "address",
-				"name": "provider",
-				"type": "address"
-			}
+				internalType: "address",
+				name: "provider",
+				type: "address",
+			},
 		],
-		"name": "getProviderInfo",
-		"outputs": [
+		name: "getProviderInfo",
+		outputs: [
 			{
-				"internalType": "uint256",
-				"name": "amountWBTC",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "amountWBTC",
+				type: "uint256",
 			},
 			{
-				"internalType": "uint256",
-				"name": "amountRUNE",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "amountRUNE",
+				type: "uint256",
 			},
 			{
-				"internalType": "bytes32",
-				"name": "lpTokenKey",
-				"type": "bytes32"
-			}
+				internalType: "bytes32",
+				name: "lpTokenKey",
+				type: "bytes32",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "uint256",
-				"name": "inputAmount",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "inputAmount",
+				type: "uint256",
 			},
 			{
-				"internalType": "bool",
-				"name": "isWBTCtoRUNE",
-				"type": "bool"
-			}
+				internalType: "bool",
+				name: "isWBTCtoRUNE",
+				type: "bool",
+			},
 		],
-		"name": "getSwapInfo",
-		"outputs": [
+		name: "getSwapInfo",
+		outputs: [
 			{
-				"internalType": "uint256",
-				"name": "estimatedOutputAmount",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "estimatedOutputAmount",
+				type: "uint256",
 			},
 			{
-				"internalType": "uint256",
-				"name": "transactionFee",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "transactionFee",
+				type: "uint256",
 			},
 			{
-				"internalType": "uint256",
-				"name": "exchangeRate",
-				"type": "uint256"
-			}
+				internalType: "uint256",
+				name: "exchangeRate",
+				type: "uint256",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
+				internalType: "address",
+				name: "",
+				type: "address",
+			},
 		],
-		"name": "liquidityProviders",
-		"outputs": [
+		name: "liquidityProviders",
+		outputs: [
 			{
-				"internalType": "uint256",
-				"name": "amountWBTC",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "amountWBTC",
+				type: "uint256",
 			},
 			{
-				"internalType": "uint256",
-				"name": "amountRUNE",
-				"type": "uint256"
+				internalType: "uint256",
+				name: "amountRUNE",
+				type: "uint256",
 			},
 			{
-				"internalType": "bytes32",
-				"name": "lpTokenKey",
-				"type": "bytes32"
-			}
+				internalType: "bytes32",
+				name: "lpTokenKey",
+				type: "bytes32",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [
+		inputs: [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
+				internalType: "uint256",
+				name: "",
+				type: "uint256",
+			},
 		],
-		"name": "liquidityProvidersList",
-		"outputs": [
+		name: "liquidityProvidersList",
+		outputs: [
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
+				internalType: "address",
+				name: "",
+				type: "address",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [],
-		"name": "totalDailyFeesRUNE",
-		"outputs": [
+		inputs: [],
+		name: "totalDailyFeesRUNE",
+		outputs: [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
+				internalType: "uint256",
+				name: "",
+				type: "uint256",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [],
-		"name": "totalDailyFeesWBTC",
-		"outputs": [
+		inputs: [],
+		name: "totalDailyFeesWBTC",
+		outputs: [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
+				internalType: "uint256",
+				name: "",
+				type: "uint256",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [],
-		"name": "totalLiquidityRUNE",
-		"outputs": [
+		inputs: [],
+		name: "totalLiquidityRUNE",
+		outputs: [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
+				internalType: "uint256",
+				name: "",
+				type: "uint256",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
+		stateMutability: "view",
+		type: "function",
 	},
 	{
-		"inputs": [],
-		"name": "totalLiquidityWBTC",
-		"outputs": [
+		inputs: [],
+		name: "totalLiquidityWBTC",
+		outputs: [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
+				internalType: "uint256",
+				name: "",
+				type: "uint256",
+			},
 		],
-		"stateMutability": "view",
-		"type": "function"
-	}
+		stateMutability: "view",
+		type: "function",
+	},
 ]; // Replace with your contract ABI
 
 var contract;
+
 // Call the function to check for MetaMask installation and unisat on page load
 window.addEventListener("load", () => {
 	if (window.ethereum) {
@@ -538,7 +539,6 @@ window.addEventListener("load", () => {
 		document.getElementById("wizzConnect").style.fontSize = "8px";
 	}
 });
-
 
 //METAMASK
 async function Connect() {
@@ -604,171 +604,207 @@ async function connectToWizzWallet() {
 	}
 }
 
-
-
-
 async function getSwapInfo(inputAmount, isWBTCtoRUNE) {
-    try {
-        if (!inputAmount || isNaN(inputAmount)) {
-            console.error("Invalid input amount:", inputAmount);
-            return;
-        }
+	try {
+		if (!inputAmount || isNaN(inputAmount)) {
+			console.error("Invalid input amount:", inputAmount);
+			return;
+		}
 
-        // console.log("Calling getSwapInfo with amount:", inputAmount, "and direction:", isWBTCtoRUNE);
+		// console.log("Calling getSwapInfo with amount:", inputAmount, "and direction:", isWBTCtoRUNE);
 
-        const result = await contract.methods.getSwapInfo(inputAmount, isWBTCtoRUNE).call();
-        const estimatedOutputAmount = result[0];
-        const transactionFee = result[1];
-        const exchangeRate = result[2];
+		const result = await contract.methods
+			.getSwapInfo(inputAmount, isWBTCtoRUNE)
+			.call();
+		const estimatedOutputAmount = result[0];
+		const transactionFee = result[1];
+		const exchangeRate = result[2];
 
-        // console.log("Estimated Output Amount:", estimatedOutputAmount.toString());
-        // console.log("Transaction Fee:", transactionFee.toString());
-        // console.log("Exchange Rate:", exchangeRate.toString());
+		// console.log("Estimated Output Amount:", estimatedOutputAmount.toString());
+		// console.log("Transaction Fee:", transactionFee.toString());
+		// console.log("Exchange Rate:", exchangeRate.toString());
 
-        document.getElementById("estimated-amount").value = estimatedOutputAmount.toString();
-        document.getElementById("transaction-fee").value = transactionFee.toString();
-        document.getElementById("exchange-rate").value = exchangeRate.toString();
-    } catch (error) {
-    }
+		document.getElementById("estimated-amount").value =
+			estimatedOutputAmount.toString();
+		document.getElementById("transaction-fee").value =
+			transactionFee.toString();
+		document.getElementById("exchange-rate").value = exchangeRate.toString();
+	} catch (error) {}
 }
 
-async function storeSwapData(direction, amount, rate, address, estimatedAmount, transactionFee) {
-    try {
-        const now = new Date();
-        const pkTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Karachi" }));
+async function storeSwapData(
+	direction,
+	amount,
+	rate,
+	address,
+	estimatedAmount,
+	transactionFee
+) {
+	try {
+		const now = new Date();
+		const pkTime = new Date(
+			now.toLocaleString("en-US", { timeZone: "Asia/Karachi" })
+		);
 
-        const response = await fetch('https://server-js-inky.vercel.app/api/storeSwapData', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ 
-                direction, 
-                amount, 
-                rate, 
-                address, 
-                estimatedAmount, 
-                transactionFee, 
-                timestamp: pkTime 
-            }),
-        });
-        const data = await response.json();
-        console.log("Stored Swap Data:", data);
-    } catch (error) {
-        // console.error("Error storing swap data:", error);
-    }
+		const response = await fetch(
+			"https://server-js-inky.vercel.app/api/storeSwapData",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					direction,
+					amount,
+					rate,
+					address,
+					estimatedAmount,
+					transactionFee,
+					timestamp: pkTime,
+				}),
+			}
+		);
+		const data = await response.json();
+		console.log("Stored Swap Data:", data);
+	} catch (error) {
+		// console.error("Error storing swap data:", error);
+	}
 }
 
 async function swapWBTCtoRUNE(wbtcAmount) {
-    try {
-        const accounts = await web3.eth.getAccounts();
-        const connectedAddress = accounts[0];
-        await contract.methods.swapWBTCtoRUNE(wbtcAmount).send({ from: connectedAddress });
-        const exchangeRate = document.getElementById("exchange-rate").value;
-        const estimatedAmount = document.getElementById("estimated-amount").value;
-        const transactionFee = document.getElementById("transaction-fee").value;
-        await storeSwapData('WBTC to RUNE', wbtcAmount, exchangeRate, connectedAddress, estimatedAmount, transactionFee);
+	try {
+		const accounts = await web3.eth.getAccounts();
+		const connectedAddress = accounts[0];
+		await contract.methods
+			.swapWBTCtoRUNE(wbtcAmount)
+			.send({ from: connectedAddress });
+		const exchangeRate = document.getElementById("exchange-rate").value;
+		const estimatedAmount = document.getElementById("estimated-amount").value;
+		const transactionFee = document.getElementById("transaction-fee").value;
+		await storeSwapData(
+			"WBTC to RUNE",
+			wbtcAmount,
+			exchangeRate,
+			connectedAddress,
+			estimatedAmount,
+			transactionFee
+		);
 
-        const amountRUNE = estimatedAmount - transactionFee;
-        await updatePoolInfo(amountRUNE, wbtcAmount);
-    } catch (error) {
-        console.error("Error swapping WBTC to RUNE:", error);
-    }
+		const amountRUNE = estimatedAmount - transactionFee;
+		await updatePoolInfo(amountRUNE, wbtcAmount);
+	} catch (error) {
+		console.error("Error swapping WBTC to RUNE:", error);
+	}
 }
 
 async function swapRUNEtoWBTC(runeAmount) {
-    try {
-        const accounts = await web3.eth.getAccounts();
-        const connectedAddress = accounts[0];
-        await contract.methods.swapRUNEtoWBTC(runeAmount).send({ from: connectedAddress });
-        const exchangeRate = document.getElementById("exchange-rate").value;
-        const estimatedAmount = document.getElementById("estimated-amount").value;
-        const transactionFee = document.getElementById("transaction-fee").value;
-        await storeSwapData('RUNE to WBTC', runeAmount, exchangeRate, connectedAddress, estimatedAmount, transactionFee);
+	try {
+		const accounts = await web3.eth.getAccounts();
+		const connectedAddress = accounts[0];
+		await contract.methods
+			.swapRUNEtoWBTC(runeAmount)
+			.send({ from: connectedAddress });
+		const exchangeRate = document.getElementById("exchange-rate").value;
+		const estimatedAmount = document.getElementById("estimated-amount").value;
+		const transactionFee = document.getElementById("transaction-fee").value;
+		await storeSwapData(
+			"RUNE to WBTC",
+			runeAmount,
+			exchangeRate,
+			connectedAddress,
+			estimatedAmount,
+			transactionFee
+		);
 
-        const amountWBTC = estimatedAmount - transactionFee;
-        await updatePoolInfo(runeAmount, amountWBTC);
-    } catch (error) {
-        console.error("Error swapping RUNE to WBTC:", error);
-    }
+		const amountWBTC = estimatedAmount - transactionFee;
+		await updatePoolInfo(runeAmount, amountWBTC);
+	} catch (error) {
+		console.error("Error swapping RUNE to WBTC:", error);
+	}
 }
 
 async function updatePoolInfo(runeAmount, wbtcAmount) {
-    try {
-
-		const currentPoolInfoResponse = await fetch("https://server-js-inky.vercel.app/api/poolinfos");
+	try {
+		const currentPoolInfoResponse = await fetch(
+			"https://server-js-inky.vercel.app/api/poolinfos"
+		);
 		const currentPoolInfo = await currentPoolInfoResponse.json();
 		const latestPoolInfo = currentPoolInfo[currentPoolInfo.length - 1];
 
 		let existingRuneAmount = parseFloat(latestPoolInfo.RuneChart);
 		let existingWbtcAmount = parseFloat(latestPoolInfo.WbtcChart);
 
-		runeAmount = existingRuneAmount ;
-		wbtcAmount = existingWbtcAmount ;
-		
-        const response = await fetch('https://server-js-inky.vercel.app/api/updatePoolInfo', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ runeAmount, wbtcAmount }),
-        });
-        const data = await response.json();
-        console.log("Updated Pool Info:", data);
-    } catch (error) {
-        console.error("Error updating pool info:", error);
-    }
+		runeAmount = existingRuneAmount;
+		wbtcAmount = existingWbtcAmount;
+
+		const response = await fetch(
+			"https://server-js-inky.vercel.app/api/updatePoolInfo",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ runeAmount, wbtcAmount }),
+			}
+		);
+		const data = await response.json();
+		console.log("Updated Pool Info:", data);
+	} catch (error) {
+		console.error("Error updating pool info:", error);
+	}
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    await Connect();
+	await Connect();
 
-    const amountInput = document.getElementById("amount");
-    amountInput.addEventListener("input", async function () {
-        const amount = this.value;
+	const amountInput = document.getElementById("amount");
+	amountInput.addEventListener("input", async function () {
+		const amount = this.value;
 
-        const fromToken = document.getElementById("from-token").value.toLowerCase();
-        const toToken = document.getElementById("to-token").value.toLowerCase();
-        
-        let isWBTCtoRUNE;
-        if (fromToken === "wbtc" && toToken === "rune") {
-            isWBTCtoRUNE = true;
-        } else if (fromToken === "rune" && toToken === "wbtc") {
-            isWBTCtoRUNE = false;
-        } else {
-            console.error("Invalid swap direction selected");
-            return;
-        }
+		const fromToken = document.getElementById("from-token").value.toLowerCase();
+		const toToken = document.getElementById("to-token").value.toLowerCase();
 
-        await getSwapInfo(amount, isWBTCtoRUNE);
-    });
+		let isWBTCtoRUNE;
+		if (fromToken === "wbtc" && toToken === "rune") {
+			isWBTCtoRUNE = true;
+		} else if (fromToken === "rune" && toToken === "wbtc") {
+			isWBTCtoRUNE = false;
+		} else {
+			console.error("Invalid swap direction selected");
+			return;
+		}
 
-    document.getElementById("swapForm").addEventListener("submit", async function (event) {
-        event.preventDefault();
+		await getSwapInfo(amount, isWBTCtoRUNE);
+	});
 
-        const swapDirection = document.getElementById("swap-direction").value;
-        const amount = document.getElementById("amount").value;
+	document
+		.getElementById("swapForm")
+		.addEventListener("submit", async function (event) {
+			event.preventDefault();
 
-        if (swapDirection === "wbtc-to-rune") {
-            await swapWBTCtoRUNE(amount);
-        } else if (swapDirection === "rune-to-wbtc") {
-            await swapRUNEtoWBTC(amount);
-        } else {
-            console.error("Invalid swap direction selected");
-        }
-    });
+			const swapDirection = document.getElementById("swap-direction").value;
+			const amount = document.getElementById("amount").value;
 
-    const swapDirectionSelect = document.getElementById("swap-direction");
-    swapDirectionSelect.addEventListener("change", function () {
-        const fromTokenInput = document.getElementById("from-token");
-        const toTokenInput = document.getElementById("to-token");
+			if (swapDirection === "wbtc-to-rune") {
+				await swapWBTCtoRUNE(amount);
+			} else if (swapDirection === "rune-to-wbtc") {
+				await swapRUNEtoWBTC(amount);
+			} else {
+				console.error("Invalid swap direction selected");
+			}
+		});
 
-        if (this.value === "wbtc-to-rune") {
-            fromTokenInput.value = "WBTC";
-            toTokenInput.value = "RUNE";
-        } else if (this.value === "rune-to-wbtc") {
-            fromTokenInput.value = "RUNE";
-            toTokenInput.value = "WBTC";
-        }
-    });
+	const swapDirectionSelect = document.getElementById("swap-direction");
+	swapDirectionSelect.addEventListener("change", function () {
+		const fromTokenInput = document.getElementById("from-token");
+		const toTokenInput = document.getElementById("to-token");
+
+		if (this.value === "wbtc-to-rune") {
+			fromTokenInput.value = "WBTC";
+			toTokenInput.value = "RUNE";
+		} else if (this.value === "rune-to-wbtc") {
+			fromTokenInput.value = "RUNE";
+			toTokenInput.value = "WBTC";
+		}
+	});
 });
