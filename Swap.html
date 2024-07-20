@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swap Tokens - Nex-pool</title>
-    <meta name="description" content="Moon-Nexus: Your gateway to decentralized finance, offering liquidity pools, token swaps, and high yield farming.">
-    <meta name="keywords" content="Moon Nexus, DeFi, Decentralized Finance, Crypto Investments, Liquidity Pools, Token Swap, Yield Farming, DeFi Rewards, Blockchain, Cryptocurrency, Crypto Trading, Staking, Crypto Yield, DeFi Ecosystem, Digital Assets, Crypto Rewards">
+    <meta name="description"
+        content="Moon-Nexus: Your gateway to decentralized finance, offering liquidity pools, token swaps, and high yield farming.">
+    <meta name="keywords"
+        content="Moon Nexus, DeFi, Decentralized Finance, Crypto Investments, Liquidity Pools, Token Swap, Yield Farming, DeFi Rewards, Blockchain, Cryptocurrency, Crypto Trading, Staking, Crypto Yield, DeFi Ecosystem, Digital Assets, Crypto Rewards">
     <link rel="apple-touch-icon" sizes="180x180" href="imgs/logo1.png">
     <link rel="icon" type="image/png" sizes="32x32" href="imgs/logo1.png">
     <link rel="icon" type="image/png" sizes="16x16" href="imgs/logo1.png">
@@ -16,13 +19,17 @@
     <link rel="stylesheet" href="CSS/swap.css">
     <link rel="stylesheet" href="CSS/Common.css">
     <link rel="stylesheet" href="CSS/connectBtn.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/4.0.0/font/MaterialIcons-Regular.ttf">
-
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/4.0.0/font/MaterialIcons-Regular.ttf">
+      -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
-   <header>
+    <header>
         <div class="logo">
             <img src="imgs/logo.png" alt="logo" style="height: 50px" ;>
             Nex-pool
@@ -36,15 +43,15 @@
                 <a href="Swap.html">Swap Tokens</a>
             </div>
         </div>
-      
-       <nav>
+
+        <nav>
             <ul>
                 <li> <a href="index.html" id="style-2" data-replace="Home"><span>Home</span></a></li>
                 <li> <a href="poolinfo.html" id="style-2" data-replace="Liquidity Pool"><span>Liquidity Pool</span></a>
                 </li>
                 <li> <a href="user_panel.html" id="style-2" data-replace="User Panel"><span>User Panel</span></a></li>
                 <li> <a href="Swap.html" id="style-2" data-replace="Swap Tokens"><span>Swap Tokens</span></a></li>
-                     <li><a  id="connectBtn" id="style-2" data-replace="Connect"><span>Connect</span></a></li>
+                <li><a id="connectBtn" id="style-2" data-replace="Connect"><span>Connect</span></a></li>
 
 
             </ul>
@@ -119,7 +126,8 @@
                 <div class="footer-col">
                     <h4>follow us</h4>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=61562048489810"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61562048489810"><i
+                                class="fab fa-facebook-f"></i></a>
                         <a href="https://x.com/MirzaWahhab"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -127,12 +135,12 @@
                 </div>
             </div>
         </div>
-         <div class="footer-bottom">
+        <div class="footer-bottom">
             <p>&copy; 2024 Nex-pool. All rights reserved.</p>
         </div>
     </footer>
 
-     <!-- Popup HTML -->
+    <!-- Popup HTML -->
     <div id="popup" class="popup">
         <div class="popup-content">
             <span class="close">&times;</span>
@@ -140,14 +148,15 @@
             <div class="wallet-list">
                 <div class="wallet-item" onclick="Connect()">
                     <img src="imgs/metamask.png" alt="MetaMask">
-                    <p >MetaMask Wallet</p>
+                    <p>MetaMask Wallet</p>
                     <p id="connector"></p>
                 </div>
-                 <div class="wallet-item" onclick="connectOKXWallet()">
+                <div class="wallet-item" id="okxWallet">
                     <img src="imgs/okx-seeklogo.svg" alt="OKX">
-                    <p >OKX Wallet</p>
+                    <p>OKX Wallet</p>
+                    <p id="okxConnect"></p>
                 </div>
-                 <div class="wallet-item" id="connectUniSat">
+                <div class="wallet-item" id="connectUniSat">
                     <img src="imgs/unisat.png" alt="Unisat">
                     <p>Unisat Wallet</p>
                     <p id="uniConnect"></p>
@@ -155,7 +164,7 @@
             </div>
         </div>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/web3@1.6.1/dist/web3.min.js"></script>
     <script src="JS/swap.js"></script>
     <script>
@@ -169,22 +178,22 @@
         var span = document.getElementsByClassName('close')[0];
 
         // When the user clicks the button, open the popup
-        btn.onclick = function() {
+        btn.onclick = function () {
             popup.style.display = 'flex';
         }
 
         // When the user clicks on <span> (x), close the popup
-        span.onclick = function() {
+        span.onclick = function () {
             popup.style.display = 'none';
         }
 
         // When the user clicks anywhere outside of the popup, close it
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == popup) {
                 popup.style.display = 'none';
             }
         }
     </script>
 </body>
-</html>
 
+</html>
