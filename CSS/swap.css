@@ -58,6 +58,15 @@ h1 {
     border-radius: 4px;
 }
 
+#wizzConnect{
+    font-size: 10px;
+    margin-left: 5.6rem;
+    background-color: green;
+    padding: 3px;
+    border-radius: 4px;
+}
+
+
 form {
     display: flex;
     flex-direction: column;
