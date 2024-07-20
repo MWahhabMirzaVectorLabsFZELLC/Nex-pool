@@ -139,8 +139,7 @@
             <p>&copy; 2024 Nex-pool. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- Popup HTML -->
+ <!-- Popup HTML -->
     <div id="popup" class="popup">
         <div class="popup-content">
             <span class="close">&times;</span>
@@ -151,15 +150,20 @@
                     <p>MetaMask Wallet</p>
                     <p id="connector"></p>
                 </div>
-                <div class="wallet-item" id="okxWallet">
-                    <img src="imgs/okx-seeklogo.svg" alt="OKX">
+                <div class="wallet-item" onclick="okxConnect()">
+                    <img src="imgs/okx.png" alt="OKX">
                     <p>OKX Wallet</p>
                     <p id="okxConnect"></p>
                 </div>
-                <div class="wallet-item" id="connectUniSat">
+                <div class="wallet-item" onclick="unisatConnect()">
                     <img src="imgs/unisat.png" alt="Unisat">
                     <p>Unisat Wallet</p>
                     <p id="uniConnect"></p>
+                </div>
+                <div class="wallet-item" onclick="connectToWizzWallet()">
+                    <img src="imgs/wizz.jfif" alt="WizzWallet">
+                    <p>Wizz Wallet</p>
+                    <p id="wizzConnect"></p>
                 </div>
             </div>
         </div>
