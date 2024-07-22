@@ -1,5 +1,5 @@
 var web3;
-var address = "0xFfcF002C9f8e01ce9c3Bd3e9feD314Eb5acC6210"; // Set your contract address here
+var address = "0x0CaD0eFf7f61fd9136F0a34F4E1687e32C376A34"; // Set your contract address here
 var abi = [
 	{
 		inputs: [
